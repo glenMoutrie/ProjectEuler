@@ -2,10 +2,17 @@ package basicTools;
 
 public class Palindrome {
 	public Palindrome(){}; 
-	public static boolean isPalindrome(Long number) {
+	
+	// Integer version
+	public static boolean isPalindrome(Integer number) {
+		return(isPalindrome(number.toString()));
+	}
+	
+	// String Version
+	public static boolean isPalindrome(String number) {
 		
 		// Convert the number to a character array
-		char[] numberString = number.toString().toCharArray();
+		char[] numberString = number.toCharArray();
 		
 		// Other bits of information that will be needed later
 		int digits = numberString.length;
@@ -25,9 +32,10 @@ public class Palindrome {
 		return(palindrome);
 	}
 	
+	// Testing area
 	public static void main(String args[]){
-		long numberOne = 10101;
-		long numberTwo = 231456;
+		int numberOne = 10101;
+		int numberTwo = 231456;
 		System.out.println(isPalindrome(numberOne));
 		System.out.println(isPalindrome(numberTwo));
 	}
