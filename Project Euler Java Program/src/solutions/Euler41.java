@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Euler41 {
 	public static void main(String args[]) {
-		long start = System.currentTimeMillis();
-		ArrayList<Integer> primes = basicTools.Factors.primeSieve(987654321);
-		System.out.println(System.currentTimeMillis()-start);
+		ArrayList<Integer> result = new ArrayList<Integer>();
+		result = basicTools.Factors.primeSieve(999999999);
+		result.stream().filter(p -> basicTools.Palindrome.isPandigital(p.toString())).forEach(q -> System.out.println(q));
 		
 		
 	}
