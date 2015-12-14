@@ -57,6 +57,9 @@ public class NumberSequence {
 		
 		return thisNumber;
 	}
-	
+	public static void main(String[] args) {
+		String line = "12";
+		System.out.println(fibonacciNumber(Integer.parseInt(line)));
+	}
 	
 }

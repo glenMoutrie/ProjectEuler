@@ -48,6 +48,19 @@ public class Factors {
 		
 	}
 	
+	public static void printPrimes(Integer highest){
+		
+		ArrayList<Integer> primes = new ArrayList<Integer>();
+		primes = primeSieve(highest);
+		primes.stream().forEach(System.out::println);
+	}
+	
+	public static void tokenisePrimes(Integer highest) {
+		ArrayList<Integer> primes = new ArrayList<Integer>();
+		primes = primeSieve(highest);
+		utilities.Printing.printTokenisedArrayList(primes);
+	}
+	
 	public static ArrayList<Integer> compositeSieve(int highest,boolean oddOnly) {
 		
 		//Declare ArrayList
@@ -122,6 +135,7 @@ public class Factors {
 	public static void main(String... args){
 		ArrayList<Integer> primeValues = new ArrayList<Integer>(1000);
 		primeValues = primeSieve(1000);
+		tokenisePrimes(123);
 		Integer sum = 0;
 		for(int i = 0; i < primeValues.size(); i ++){
 			sum = sum + primeValues.get(i);
