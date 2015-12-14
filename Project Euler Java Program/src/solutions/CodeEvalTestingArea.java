@@ -1,5 +1,7 @@
 package solutions;
 
+import java.text.DecimalFormat;
+
 public class CodeEvalTestingArea {
 
 	public static void main(String args[]){
@@ -107,76 +109,104 @@ public class CodeEvalTestingArea {
 		 * Beautiful Strings
 		 * 
 		 */
-		String line = "Ignore punctuation, please :)";
-		line = line.toLowerCase();
-		String[] sentence = line.split("");
+//		String line = "Ignore punctuation, please :)";
+//		line = line.toLowerCase();
+//		String[] sentence = line.split("");
+//		
+//		int total, letterValue;
+//		total = 0;
+//		for(String letter: sentence){
+//			switch(letter) {
+//			case "a": letterValue = 1;
+//			break;
+//			case "b": letterValue = 2;
+//			break;
+//			case "c": letterValue = 3;
+//			break;
+//			case "d": letterValue = 4;
+//			break;
+//			case "e": letterValue = 5;
+//			break;
+//			case "f": letterValue = 6;
+//			break;
+//			case "g": letterValue = 7;
+//			break;
+//			case "h": letterValue = 8;
+//			break;
+//			case "i": letterValue = 9;
+//			break;
+//			case "j": letterValue = 10;
+//			break;
+//			case "k": letterValue = 11;
+//			break;
+//			case "l": letterValue = 12;
+//			break;
+//			case "m": letterValue = 13;
+//			break;
+//			case "n": letterValue = 14;
+//			break;
+//			case "o": letterValue = 15;
+//			break;
+//			case "p": letterValue = 16;
+//			break;
+//			case "q": letterValue = 17;
+//			break;
+//			case "r": letterValue = 18;
+//			break;
+//			case "s": letterValue = 19;
+//			break;
+//			case "t": letterValue = 20;
+//			break;
+//			case "u": letterValue = 21;
+//			break;
+//			case "v": letterValue = 22;
+//			break;
+//			case "w": letterValue = 23;
+//			break;
+//			case "x": letterValue = 24;
+//			break;
+//			case "y": letterValue = 25;
+//			break;
+//			case "z": letterValue = 26;
+//			break;
+//			default: letterValue = 0;
+//			break;
+//			}
+//			if(letterValue>0){
+//				letterValue = 26;
+//			}
+//			total += letterValue;
+//			
+//		}
+//		System.out.println(total);
 		
-		int total, letterValue;
-		total = 0;
-		for(String letter: sentence){
-			switch(letter) {
-			case "a": letterValue = 1;
-			break;
-			case "b": letterValue = 2;
-			break;
-			case "c": letterValue = 3;
-			break;
-			case "d": letterValue = 4;
-			break;
-			case "e": letterValue = 5;
-			break;
-			case "f": letterValue = 6;
-			break;
-			case "g": letterValue = 7;
-			break;
-			case "h": letterValue = 8;
-			break;
-			case "i": letterValue = 9;
-			break;
-			case "j": letterValue = 10;
-			break;
-			case "k": letterValue = 11;
-			break;
-			case "l": letterValue = 12;
-			break;
-			case "m": letterValue = 13;
-			break;
-			case "n": letterValue = 14;
-			break;
-			case "o": letterValue = 15;
-			break;
-			case "p": letterValue = 16;
-			break;
-			case "q": letterValue = 17;
-			break;
-			case "r": letterValue = 18;
-			break;
-			case "s": letterValue = 19;
-			break;
-			case "t": letterValue = 20;
-			break;
-			case "u": letterValue = 21;
-			break;
-			case "v": letterValue = 22;
-			break;
-			case "w": letterValue = 23;
-			break;
-			case "x": letterValue = 24;
-			break;
-			case "y": letterValue = 25;
-			break;
-			case "z": letterValue = 26;
-			break;
-			default: letterValue = 0;
-			break;
+		/* 
+		 * Counting capital letters
+		 */
+		
+		String line = "thisTHIS";
+		String lowerCase = line.toLowerCase();
+		
+		char[] both = line.toCharArray();
+		char[] lower = lowerCase.toCharArray();
+		
+		int capitalLetters = 0;
+		
+		for(int i = 0; i < both.length; i++){
+			if(both[i] != lower[i]){
+				capitalLetters++;
 			}
-			if(letterValue>0){
-				letterValue = 26;
-			}
-			total += letterValue;
-			
 		}
-		System.out.println(total);
+		
+		Double pctLower = (double)(both.length - capitalLetters);
+		Double pctUpper = (double)(capitalLetters);
+		
+		pctLower = (pctLower/both.length)*100;
+		pctUpper = (pctUpper/both.length)*100;
+		
+		System.out.println("lowercase: " + new DecimalFormat("###.##").format(pctLower) + 
+				" uppercase: " + new DecimalFormat("###.##").format(pctUpper));
+		
 		
 
 	}
