@@ -1,13 +1,11 @@
 package solutions;
 
-<<<<<<< HEAD
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
-=======
-import java.text.DecimalFormat;
->>>>>>> origin/master
+
 
 public class CodeEvalTestingArea {
 
@@ -238,193 +236,198 @@ public class CodeEvalTestingArea {
 		 * matrix rotation 90 degrees
 		 */
 
-//		String line = "a b c d";
-//
-//		// Create the necessary data
-//		String[] split = line.split(" ");
-//		int length = split.length;
-//		Integer row = ((Double)Math.sqrt(length)).intValue();
-//
-//		// String buffer to add the output to
-//		StringBuffer output = new StringBuffer();
-//
-//		// Now loop over the matrix, first by column then by row
-//		for(int column = 0; column < row; column++){O
-//			for(int i = column + row*(row-1); i >= 0; i = i - row){
-//
-//				// Add the data to the output
-//				output.append(split[i]);
-//
-//				// Don't add a space at the end
-//				if(output.length() != line.length()) {
-//					output.append(" ");
-//				}
-//			}
-//		}
-//		
-//		// Finally add the output
-//		System.out.println(output);
-//
+		//		String line = "a b c d";
+		//
+		//		// Create the necessary data
+		//		String[] split = line.split(" ");
+		//		int length = split.length;
+		//		Integer row = ((Double)Math.sqrt(length)).intValue();
+		//
+		//		// String buffer to add the output to
+		//		StringBuffer output = new StringBuffer();
+		//
+		//		// Now loop over the matrix, first by column then by row
+		//		for(int column = 0; column < row; column++){O
+		//			for(int i = column + row*(row-1); i >= 0; i = i - row){
+		//
+		//				// Add the data to the output
+		//				output.append(split[i]);
+		//
+		//				// Don't add a space at the end
+		//				if(output.length() != line.length()) {
+		//					output.append(" ");
+		//				}
+		//			}
+		//		}
+		//		
+		//		// Finally add the output
+		//		System.out.println(output);
+		//
 		/* 
 		 * File size
 		 */
-//		Path file = Paths.get("Users/glenmoutrie/Documents/About Stacks.pdf");
-//		
-//		Class basic = BasicFileAttributes.class;
-//		
-//		BasicFileAttributes attr = Files.readAttributes(file, BasicFileAttributes.class);
-		
+//		Path fileLoc = Paths.get("/Users/glenmoutrie/Documents/Data/Airpassengers.csv");
+//
+//		try{
+//			BasicFileAttributes attr = Files.readAttributes(fileLoc, BasicFileAttributes.class);
+//			System.out.println(attr.size());
+//		} catch (IOException e){
+//			System.err.println("File could not be found. Check the path: " + fileLoc.toString());
+//		}
+
+
 		/*
 		 * Mth element
 		 */
-		
-//		String[] split;
-//		int m;
-//		String line = "a b c d 4";
-//		try{
-//			split = line.split(" ");
-//			m = Integer.parseInt(split[split.length - 1]);
-//			System.out.println(split[split.length - (m+1)]);
-//		} catch (ArrayIndexOutOfBoundsException e) {
-//			System.out.println("The following input caused an error: " + line);
-//		}
-		
+
+		//		String[] split;
+		//		int m;
+		//		String line = "a b c d 4";
+		//		try{
+		//			split = line.split(" ");
+		//			m = Integer.parseInt(split[split.length - 1]);
+		//			System.out.println(split[split.length - (m+1)]);
+		//		} catch (ArrayIndexOutOfBoundsException e) {
+		//			System.out.println("The following input caused an error: " + line);
+		//		}
+
 		/*
 		 * Rightmost Char
 		 */
-//		String[] split, sentence;
-//		boolean found;
-//		int index;
-//		
-//		String line = "Hello CodeEval,C";
-//		split = line.split(",");
-//		split[0] = split[0].replace(" ", "");
-//		sentence = split[0].split("");
-//		found = false;
-//		index = sentence.length - 1;
-//		
-//		while(!found){
-//			if (index >= 0) {
-//				found = sentence[index].equals(split[1]);
-//			} else {
-//				found = true;
-//			}
-//			
-//			if (found) {
-//				System.out.println(index);
-//			} else {
-//				index--;
-//			}
-//			
-//		}
-		
+		//		String[] split, sentence;
+		//		boolean found;
+		//		int index;
+		//		
+		//		String line = "Hello CodeEval,C";
+		//		split = line.split(",");
+		//		split[0] = split[0].replace(" ", "");
+		//		sentence = split[0].split("");
+		//		found = false;
+		//		index = sentence.length - 1;
+		//		
+		//		while(!found){
+		//			if (index >= 0) {
+		//				found = sentence[index].equals(split[1]);
+		//			} else {
+		//				found = true;
+		//			}
+		//			
+		//			if (found) {
+		//				System.out.println(index);
+		//			} else {
+		//				index--;
+		//			}
+		//			
+		//		}
+
 		/*
 		 * Point in circle
 		 */
-<<<<<<< HEAD
-=======
-//		String line = "Ignore punctuation, please :)";
-//		line = line.toLowerCase();
-//		String[] sentence = line.split("");
-//		
-//		int total, letterValue;
-//		total = 0;
-//		for(String letter: sentence){
-//			switch(letter) {
-//			case "a": letterValue = 1;
-//			break;
-//			case "b": letterValue = 2;
-//			break;
-//			case "c": letterValue = 3;
-//			break;
-//			case "d": letterValue = 4;
-//			break;
-//			case "e": letterValue = 5;
-//			break;
-//			case "f": letterValue = 6;
-//			break;
-//			case "g": letterValue = 7;
-//			break;
-//			case "h": letterValue = 8;
-//			break;
-//			case "i": letterValue = 9;
-//			break;
-//			case "j": letterValue = 10;
-//			break;
-//			case "k": letterValue = 11;
-//			break;
-//			case "l": letterValue = 12;
-//			break;
-//			case "m": letterValue = 13;
-//			break;
-//			case "n": letterValue = 14;
-//			break;
-//			case "o": letterValue = 15;
-//			break;
-//			case "p": letterValue = 16;
-//			break;
-//			case "q": letterValue = 17;
-//			break;
-//			case "r": letterValue = 18;
-//			break;
-//			case "s": letterValue = 19;
-//			break;
-//			case "t": letterValue = 20;
-//			break;
-//			case "u": letterValue = 21;
-//			break;
-//			case "v": letterValue = 22;
-//			break;
-//			case "w": letterValue = 23;
-//			break;
-//			case "x": letterValue = 24;
-//			break;
-//			case "y": letterValue = 25;
-//			break;
-//			case "z": letterValue = 26;
-//			break;
-//			default: letterValue = 0;
-//			break;
-//			}
-//			if(letterValue>0){
-//				letterValue = 26;
-//			}
-//			total += letterValue;
-//			
-//		}
-//		System.out.println(total);
-		
-		/* 
-		 * Counting capital letters
+		//		String line = "Ignore punctuation, please :)";
+		//		line = line.toLowerCase();
+		//		String[] sentence = line.split("");
+		//		
+		//		int total, letterValue;
+		//		total = 0;
+		//		for(String letter: sentence){
+		//			switch(letter) {
+		//			case "a": letterValue = 1;
+		//			break;
+		//			case "b": letterValue = 2;
+		//			break;
+		//			case "c": letterValue = 3;
+		//			break;
+		//			case "d": letterValue = 4;
+		//			break;
+		//			case "e": letterValue = 5;
+		//			break;
+		//			case "f": letterValue = 6;
+		//			break;
+		//			case "g": letterValue = 7;
+		//			break;
+		//			case "h": letterValue = 8;
+		//			break;
+		//			case "i": letterValue = 9;
+		//			break;
+		//			case "j": letterValue = 10;
+		//			break;
+		//			case "k": letterValue = 11;
+		//			break;
+		//			case "l": letterValue = 12;
+		//			break;
+		//			case "m": letterValue = 13;
+		//			break;
+		//			case "n": letterValue = 14;
+		//			break;
+		//			case "o": letterValue = 15;
+		//			break;
+		//			case "p": letterValue = 16;
+		//			break;
+		//			case "q": letterValue = 17;
+		//			break;
+		//			case "r": letterValue = 18;
+		//			break;
+		//			case "s": letterValue = 19;
+		//			break;
+		//			case "t": letterValue = 20;
+		//			break;
+		//			case "u": letterValue = 21;
+		//			break;
+		//			case "v": letterValue = 22;
+		//			break;
+		//			case "w": letterValue = 23;
+		//			break;
+		//			case "x": letterValue = 24;
+		//			break;
+		//			case "y": letterValue = 25;
+		//			break;
+		//			case "z": letterValue = 26;
+		//			break;
+		//			default: letterValue = 0;
+		//			break;
+		//			}
+		//			if(letterValue>0){
+		//				letterValue = 26;
+		//			}
+		//			total += letterValue;
+		//			
+		//		}
+		//		System.out.println(total);
+
+		//		/* 
+		//		 * Counting capital letters
+		//		 */
+		//		
+		//		String line = "thisTHIS";
+		//		String lowerCase = line.toLowerCase();
+		//		
+		//		char[] both = line.toCharArray();
+		//		char[] lower = lowerCase.toCharArray();
+		//		
+		//		int capitalLetters = 0;
+		//		
+		//		for(int i = 0; i < both.length; i++){
+		//			if(both[i] != lower[i]){
+		//				capitalLetters++;
+		//			}
+		//		}
+		//		
+		//		Double pctLower = (double)(both.length - capitalLetters);
+		//		Double pctUpper = (double)(capitalLetters);
+		//		
+		//		pctLower = (pctLower/both.length)*100;
+		//		pctUpper = (pctUpper/both.length)*100;
+		//		
+		//		System.out.println("lowercase: " + new DecimalFormat("###.##").format(pctLower) + 
+		//				" uppercase: " + new DecimalFormat("###.##").format(pctUpper));
+
+
+		/*
+		 * Inside Circle
 		 */
-		
-		String line = "thisTHIS";
-		String lowerCase = line.toLowerCase();
-		
-		char[] both = line.toCharArray();
-		char[] lower = lowerCase.toCharArray();
-		
-		int capitalLetters = 0;
-		
-		for(int i = 0; i < both.length; i++){
-			if(both[i] != lower[i]){
-				capitalLetters++;
-			}
-		}
-		
-		Double pctLower = (double)(both.length - capitalLetters);
-		Double pctUpper = (double)(capitalLetters);
-		
-		pctLower = (pctLower/both.length)*100;
-		pctUpper = (pctUpper/both.length)*100;
-		
-		System.out.println("lowercase: " + new DecimalFormat("###.##").format(pctLower) + 
-				" uppercase: " + new DecimalFormat("###.##").format(pctUpper));
-		
->>>>>>> origin/master
-		
-		String line = "Center: (2.12, -3.48); Radius: 17.22; Point: (16.21, -5)";
-		String[] split = line.split(";");
-		for(String i : split) System.out.println(i);
+
+		//		String line = "Center: (2.12, -3.48); Radius: 17.22; Point: (16.21, -5)";
+		//		String[] split = line.split(";");
+		//		for(String i : split) System.out.println(i);
 	}
 }
