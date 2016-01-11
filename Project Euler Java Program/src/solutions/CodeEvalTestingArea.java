@@ -429,5 +429,18 @@ public class CodeEvalTestingArea {
 		//		String line = "Center: (2.12, -3.48); Radius: 17.22; Point: (16.21, -5)";
 		//		String[] split = line.split(";");
 		//		for(String i : split) System.out.println(i);
+		
+		/*
+		 * Longest word
+		 */
+		String line = "another line";
+		String[] split = line.split(" ");
+		String longest = split[0];
+		for (int i = 1; i < split.length; i++) {
+			if(split[i].length() > longest.length()){
+				longest = split[i];
+			}
+		}
+		System.out.println(longest);
 	}
 }
