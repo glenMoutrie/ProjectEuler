@@ -433,14 +433,22 @@ public class CodeEvalTestingArea {
 		/*
 		 * Longest word
 		 */
-		String line = "another line";
+//		String line = "another line";
+//		String[] split = line.split(" ");
+//		String longest = split[0];
+//		for (int i = 1; i < split.length; i++) {
+//			if(split[i].length() > longest.length()){
+//				longest = split[i];
+//			}
+//		}
+//		System.out.println(longest);
+		
+		/*
+		 * Lowest Unique Number
+		 */
+		String line = "3 3 9 1 6 5 8 1 5 3";
 		String[] split = line.split(" ");
-		String longest = split[0];
-		for (int i = 1; i < split.length; i++) {
-			if(split[i].length() > longest.length()){
-				longest = split[i];
-			}
-		}
-		System.out.println(longest);
+		
+		
 	}
 }
