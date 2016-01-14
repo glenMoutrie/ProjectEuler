@@ -443,12 +443,40 @@ public class CodeEvalTestingArea {
 //		}
 //		System.out.println(longest);
 		
-		/*
-		 * Lowest Unique Number
-		 */
-		String line = "3 3 9 1 6 5 8 1 5 3";
-		String[] split = line.split(" ");
+//		/*
+//		 * Lowest Unique Number
+//		 */
+//		String line = "3 3 9 1 6 5 8 1 5 3";
+//		String[] split = line.split(" ");
+//		
 		
+//		/*
+//		 * De capitalize
+//		 */
+//		String line = "Hello world!";
+//		// Process line of input Here
+//        String[] split = line.split("");
+//        StringBuffer output = new StringBuffer("");
+//        
+//        for(String i : split) {
+//        	if(i.matches("[A-Z]")){
+//        		output.append(i.toLowerCase());
+//        	} else if (i.matches("[a-z]")) {
+//        		output.append(i.toUpperCase());
+//        	} else {
+//        		output.append(i);
+//        	}
+//        }
+//        
+//        System.out.println(output);
+		
+		/*
+		 * Match email address
+		 */
+		
+		String line = "admin#codeeval.com";
+		System.out.println(line.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"));
+				
 		
 	}
 }
