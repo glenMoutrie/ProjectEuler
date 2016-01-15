@@ -1,10 +1,6 @@
 package solutions;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
+import java.util.HashSet;
 
 
 public class CodeEvalTestingArea {
@@ -474,9 +470,39 @@ public class CodeEvalTestingArea {
 		 * Match email address
 		 */
 		
-		String line = "admin#codeeval.com";
-		System.out.println(line.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"));
+//		String line = "admin#codeeval.com";
+//		System.out.println(line.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"));
 				
+		
+		/*
+		 * Simple addition
+		 */
+//		String[] line = {"17","9","8"};
+//		int total = 0;
+//		for(String i :
+//			line){
+//			total += Integer.parseInt(i);
+//		}
+//		
+//		System.out.println(total);
+		
+		/*
+		 * Unique elements
+		 */
+		
+		HashSet<String> unique = new HashSet();
+		StringBuffer output = new StringBuffer("");
+		String line = "1,1,1,2,2,3,3,4,4";
+		String[] split = line.split(",");
+		for(String i : split){
+			unique.add(i);
+		}
+		for(String result : unique){
+			output.append(result);
+			output.append(",");
+		}
+		output.deleteCharAt(output.length()-1);
+		System.out.println(output);
 		
 	}
 }
