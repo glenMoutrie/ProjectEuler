@@ -521,6 +521,7 @@ public class CodeEvalTestingArea {
 
 		Pattern pattern = Pattern.compile(new String(new StringBuffer("")
 		.append("[").append(split[1]).append("]")));
+		
 		try{
 			Matcher matcher = pattern.matcher(split[0]);
 			int length = output.length();
