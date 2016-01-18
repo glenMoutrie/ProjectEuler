@@ -1,6 +1,7 @@
 package solutions;
 
-import java.util.HashSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class CodeEvalTestingArea {
@@ -262,14 +263,14 @@ public class CodeEvalTestingArea {
 		/* 
 		 * File size
 		 */
-//		Path fileLoc = Paths.get("/Users/glenmoutrie/Documents/Data/Airpassengers.csv");
-//
-//		try{
-//			BasicFileAttributes attr = Files.readAttributes(fileLoc, BasicFileAttributes.class);
-//			System.out.println(attr.size());
-//		} catch (IOException e){
-//			System.err.println("File could not be found. Check the path: " + fileLoc.toString());
-//		}
+		//		Path fileLoc = Paths.get("/Users/glenmoutrie/Documents/Data/Airpassengers.csv");
+		//
+		//		try{
+		//			BasicFileAttributes attr = Files.readAttributes(fileLoc, BasicFileAttributes.class);
+		//			System.out.println(attr.size());
+		//		} catch (IOException e){
+		//			System.err.println("File could not be found. Check the path: " + fileLoc.toString());
+		//		}
 
 
 		/*
@@ -425,84 +426,118 @@ public class CodeEvalTestingArea {
 		//		String line = "Center: (2.12, -3.48); Radius: 17.22; Point: (16.21, -5)";
 		//		String[] split = line.split(";");
 		//		for(String i : split) System.out.println(i);
-		
+
 		/*
 		 * Longest word
 		 */
-//		String line = "another line";
-//		String[] split = line.split(" ");
-//		String longest = split[0];
-//		for (int i = 1; i < split.length; i++) {
-//			if(split[i].length() > longest.length()){
-//				longest = split[i];
-//			}
-//		}
-//		System.out.println(longest);
-		
-//		/*
-//		 * Lowest Unique Number
-//		 */
-//		String line = "3 3 9 1 6 5 8 1 5 3";
-//		String[] split = line.split(" ");
-//		
-		
-//		/*
-//		 * De capitalize
-//		 */
-//		String line = "Hello world!";
-//		// Process line of input Here
-//        String[] split = line.split("");
-//        StringBuffer output = new StringBuffer("");
-//        
-//        for(String i : split) {
-//        	if(i.matches("[A-Z]")){
-//        		output.append(i.toLowerCase());
-//        	} else if (i.matches("[a-z]")) {
-//        		output.append(i.toUpperCase());
-//        	} else {
-//        		output.append(i);
-//        	}
-//        }
-//        
-//        System.out.println(output);
-		
+		//		String line = "another line";
+		//		String[] split = line.split(" ");
+		//		String longest = split[0];
+		//		for (int i = 1; i < split.length; i++) {
+		//			if(split[i].length() > longest.length()){
+		//				longest = split[i];
+		//			}
+		//		}
+		//		System.out.println(longest);
+
+		//		/*
+		//		 * Lowest Unique Number
+		//		 */
+		//		String line = "3 3 9 1 6 5 8 1 5 3";
+		//		String[] split = line.split(" ");
+		//		
+
+		//		/*
+		//		 * De capitalize
+		//		 */
+		//		String line = "Hello world!";
+		//		// Process line of input Here
+		//        String[] split = line.split("");
+		//        StringBuffer output = new StringBuffer("");
+		//        
+		//        for(String i : split) {
+		//        	if(i.matches("[A-Z]")){
+		//        		output.append(i.toLowerCase());
+		//        	} else if (i.matches("[a-z]")) {
+		//        		output.append(i.toUpperCase());
+		//        	} else {
+		//        		output.append(i);
+		//        	}
+		//        }
+		//        
+		//        System.out.println(output);
+
 		/*
 		 * Match email address
 		 */
-		
-//		String line = "admin#codeeval.com";
-//		System.out.println(line.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"));
-				
-		
+
+		//		String line = "admin#codeeval.com";
+		//		System.out.println(line.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"));
+
+
 		/*
 		 * Simple addition
 		 */
-//		String[] line = {"17","9","8"};
-//		int total = 0;
-//		for(String i :
-//			line){
-//			total += Integer.parseInt(i);
-//		}
-//		
-//		System.out.println(total);
-		
+		//		String[] line = {"17","9","8"};
+		//		int total = 0;
+		//		for(String i :
+		//			line){
+		//			total += Integer.parseInt(i);
+		//		}
+		//		
+		//		System.out.println(total);
+
 		/*
 		 * Unique elements
 		 */
+
+		//		TreeSet<Integer> unique = new TreeSet();
+		//		StringBuffer output = new StringBuffer("");
+		//		String line = "10,11,12,13,14,14,14,15,16,17,18";
+		//		String[] split = line.split(",");
+		//		for(String i : split){
+		//			unique.add(Integer.parseInt(i));
+		//		}
+		//		
+		//		output.append("Result: ");
+		//		for(Integer result : unique){
+		//			output.append(result);
+		//			output.append(",");
+		//		}
+		//		output.deleteCharAt(output.length()-1);
+		//		System.out.println(output);
+
+		/*
+		 * Remove characters
+		 */
+
+		String line;
+		String split[];
+
+		line = "how are you, how";
+		split = line.split(", ");
 		
-		HashSet<String> unique = new HashSet();
-		StringBuffer output = new StringBuffer("");
-		String line = "1,1,1,2,2,3,3,4,4";
-		String[] split = line.split(",");
-		for(String i : split){
-			unique.add(i);
+		StringBuffer output = new StringBuffer(split[0]);
+
+		Pattern pattern = Pattern.compile(new String(new StringBuffer("")
+		.append("[").append(split[1]).append("]")));
+		try{
+			Matcher matcher = pattern.matcher(split[0]);
+			int length = output.length();
+			int diff;
+			while(matcher.find()){
+				diff = length - output.length();
+				output.replace(matcher.start() - diff, matcher.end() - diff, "");
+			}
+			
+		} catch (IllegalStateException e) {
+			System.out.println(pattern);
+			System.out.println("No match");
 		}
-		for(String result : unique){
-			output.append(result);
-			output.append(",");
-		}
-		output.deleteCharAt(output.length()-1);
+		
 		System.out.println(output);
-		
+
+
+
 	}
 }
