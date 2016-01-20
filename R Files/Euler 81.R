@@ -3,6 +3,20 @@ target.matrix <- as.matrix(read.csv(file = "Downloads/p081_matrix.csv",header = 
 
 test.matrix <- matrix(c(131,201,630,537,805,673,96,803,699,732,234,342,746,497,524,103,965,422,121,37,18,150,111,956,331),5,5)
 
+sum.matrix <- test.matrix
+for (i in (nrow(sum.matrix) - 1):1){
+	for (j in ncol(sum.matrix)){
+		sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i + 1,j]
+	}
+	
+}
+
+for (i in nrow(sum.matrix)){
+	for (j in (ncol(sum.matrix)-1):1){
+		sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i,j + 1]
+	}
+}
+
 greedyPathSum <- function(input.matrix) {
   
   # Parameters that are used
