@@ -511,34 +511,68 @@ public class CodeEvalTestingArea {
 		 * Remove characters
 		 */
 
-		String line;
-		String split[];
-
-		line = "how are you, how";
-		split = line.split(", ");
+//		String line;
+//		String split[];
+//
+//		line = "how are you, how";
+//		split = line.split(", ");
+//		
+//		StringBuffer output = new StringBuffer(split[0]);
+//
+//		Pattern pattern = Pattern.compile(new String(new StringBuffer("")
+//		.append("[").append(split[1]).append("]")));
+//		
+//		try{
+//			Matcher matcher = pattern.matcher(split[0]);
+//			int length = output.length();
+//			int diff;
+//			while(matcher.find()){
+//				diff = length - output.length();
+//				output.replace(matcher.start() - diff, matcher.end() - diff, "");
+//			}
+//			
+//		} catch (IllegalStateException e) {
+//			System.out.println(pattern);
+//			System.out.println("No match");
+//		}
+//		
+//		System.out.println(output);
 		
-		StringBuffer output = new StringBuffer(split[0]);
-
-		Pattern pattern = Pattern.compile(new String(new StringBuffer("")
-		.append("[").append(split[1]).append("]")));
+		/* 
+		 * Modulus
+		 */
 		
-		try{
-			Matcher matcher = pattern.matcher(split[0]);
-			int length = output.length();
-			int diff;
+//		String line = "20,6";
+//		String[] split = line.split(",");
+//		
+////		Double one = Double.parseDouble(split[0]);
+//		Double two = Double.parseDouble("0.9");
+//		System.out.println(Double.parseDouble(split[0])%Double.parseDouble(split[1]));
+//		Double division = Double.parseDouble(split[0])/Double.parseDouble(split[1]);
+//		System.out.println((int)((division - division.intValue())*Double.parseDouble(split[1]) + 0.5));
+		
+		/*
+		 * Swap numbers
+		 */
+		
+		String line = "4Always0 5look8 4on9 7the2 4bright8 9side7 3of8 5life5";
+		char[] output = line.toCharArray();
+		Pattern pattern = Pattern.compile("[0-9]*[A-Za-z]*[0-9]");
+		char first, last;
+		
+		try {
+			Matcher matcher = pattern.matcher(line);
 			while(matcher.find()){
-				diff = length - output.length();
-				output.replace(matcher.start() - diff, matcher.end() - diff, "");
+				first = output[matcher.start()];
+				last = output[matcher.end()-1];
+				output[matcher.start()] = last;
+				output[matcher.end()-1] = first;
 			}
-			
 		} catch (IllegalStateException e) {
-			System.out.println(pattern);
-			System.out.println("No match");
+			System.out.println("Matcher failed");
 		}
 		
-		System.out.println(output);
-
-
+		System.out.println(new String(output));
 
 	}
 }
