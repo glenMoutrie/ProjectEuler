@@ -3,22 +3,68 @@ target.matrix <- as.matrix(read.csv(file = "Downloads/p081_matrix.csv",header = 
 
 test.matrix <- matrix(c(131,201,630,537,805,673,96,803,699,732,234,342,746,497,524,103,965,422,121,37,18,150,111,956,331),5,5)
 
-sum.matrix <- test.matrix
+t <- test.matrix
 
-# Sum across the final column
-for (i in (nrow(sum.matrix) - 1):1){
-	for (j in ncol(sum.matrix)){
-		sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i + 1,j]
+sumEdge <- function(sum.matrix) {
+	# Sum across the final column
+	for (i in (nrow(sum.matrix) - 1):1){
+		for (j in ncol(sum.matrix)){
+			sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i + 1,j]
+		}
+		
 	}
 	
+	# Sum across the final row
+	for (i in nrow(sum.matrix)){
+		for (j in (ncol(sum.matrix)-1):1){
+			sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i,j + 1]
+		}
+	}
+	
+	sum.matrix
 }
 
-# Sum across the final row
-for (i in nrow(sum.matrix)){
-	for (j in (ncol(sum.matrix)-1):1){
-		sum.matrix[i,j] <- sum.matrix[i,j] + sum.matrix[i,j + 1]
+# Produces the differences needed to identify the diagonals of the matrix
+getDiffs <- function(dimension) {
+	end <- dimension - 1
+	output <- list()
+	for(i in 1:(((end)*2)-1)) {
+		if(i <= end) {
+			output[[length(output) + 1]] <- 1:i
+		} else {
+			output[[length(output) + 1]] <- (i-end + 1):end
+		}
 	}
+	output
 }
+
+# Test case for getDiffs()
+# getDiffs(5)
+
+# Sum each of the non-edges in a tree like structure
+sumMatrixInternal <- function(matrix) {
+	sum.matrix <- matrix
+	dimension <- ncol(matrix)
+	
+	differences <- getDiffs(dimension = dimension)
+	
+	addValues <- function(row,col) {
+		row.id <- dimension - d[row]
+		col.id <- dimension - d[col]
+		# print( max(sum.matrix[row.id + 1,col.id],sum.matrix[row.id,col.id + 1]))
+		sum.matrix[row.id,col.id] <<- min(sum.matrix[row.id + 1,col.id],sum.matrix[row.id,col.id + 1])
+		sum.matrix
+	}
+	
+	for(d in differences){
+		# mapply(function(row,col) {print(c(dimension - d[row], dimension - d[col]))},1:length(d),length(d):1)
+		mapply(addValues,1:length(d),length(d):1,matrix)
+	}
+	sum.matrix
+}
+sumMatrixInternal(sumEdge(t))
+
+test <- provideRowDiagonals()
 
 # greedyPathSum <- function(input.matrix) {
 #   
@@ -71,6 +117,6 @@ for (i in nrow(sum.matrix)){
 # greedyPathSum(test.matrix)
 
 # Correct answer
-c(131,201,96,342,746,422,121,37,311)
-sum(c(131,201,96,342,746,422,121,37,311))
-cumsum(c(131,201,96,342,746,422,121,37,311))
+# c(131,201,96,342,746,422,121,37,311)
+# sum(c(131,201,96,342,746,422,121,37,311))
+# cumsum(c(131,201,96,342,746,422,121,37,311))
