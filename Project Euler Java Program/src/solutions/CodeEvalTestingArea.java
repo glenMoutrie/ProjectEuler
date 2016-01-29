@@ -1,7 +1,6 @@
 package solutions;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 
 public class CodeEvalTestingArea {
@@ -555,24 +554,59 @@ public class CodeEvalTestingArea {
 		 * Swap numbers
 		 */
 		
-		String line = "4Always0 5look8 4on9 7the2 4bright8 9side7 3of8 5life5";
-		char[] output = line.toCharArray();
-		Pattern pattern = Pattern.compile("[0-9]*[A-Za-z]*[0-9]");
-		char first, last;
+//		String line = "4Always0 5look8 4on9 7the2 4bright8 9side7 3of8 5life5";
+//		char[] output = line.toCharArray();
+//		Pattern pattern = Pattern.compile("[0-9]*[A-Za-z]*[0-9]");
+//		char first, last;
+//		
+//		try {
+//			Matcher matcher = pattern.matcher(line);
+//			while(matcher.find()){
+//				first = output[matcher.start()];
+//				last = output[matcher.end()-1];
+//				output[matcher.start()] = last;
+//				output[matcher.end()-1] = first;
+//			}
+//		} catch (IllegalStateException e) {
+//			System.out.println("Matcher failed");
+//		}
+//		
+//		System.out.println(new String(output));
 		
-		try {
-			Matcher matcher = pattern.matcher(line);
-			while(matcher.find()){
-				first = output[matcher.start()];
-				last = output[matcher.end()-1];
-				output[matcher.start()] = last;
-				output[matcher.end()-1] = first;
-			}
-		} catch (IllegalStateException e) {
-			System.out.println("Matcher failed");
+		/*
+		 * Penultimate line
+		 */
+		
+//		String line = "this is some text";
+//		String[] split = line.split(" ");
+//		System.out.println(split[split.length - 2]);
+		
+		/* 
+		 * Find a writer
+		 */
+		
+		String line = "osSE5Gu0Vi8WRq93UvkYZCjaOKeNJfTyH6tzDQbxFm4M1ndXIPh27wBA rLclpg| 3 35 27 62 51 27 46 57 26 10 46 63 57 45 15 43 53";
+		
+		// Declare
+		String[] split, numbers;
+		ArrayList<Integer> key;
+		StringBuffer output;
+		
+		// Split the string
+		split = line.split("|");
+		numbers = split[1].split(" ");
+		key = new ArrayList<Integer>();
+		
+		for (String i : numbers) {
+			key.add(Integer.parseInt(i));
 		}
 		
-		System.out.println(new String(output));
+		output = new StringBuffer("");
+		for (Integer j : key) {
+			output.append(split[0].substring(j, j));
+		}
+		
+		System.out.println(output);
 
 	}
 }
