@@ -1,8 +1,5 @@
 package solutions;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class CodeEvalTestingArea {
@@ -586,7 +583,7 @@ public class CodeEvalTestingArea {
 		/* 
 		 * Find a writer
 		 */
-		
+//		
 //		String line = "osSE5Gu0Vi8WRq93UvkYZCjaOKeNJfTyH6tzDQbxFm4M1ndXIPh27wBA rLclpg| 3 35 27 62 51 27 46 57 26 10 46 63 57 45 15 43 53";
 //		
 //		// Declare
@@ -595,8 +592,8 @@ public class CodeEvalTestingArea {
 //		StringBuffer output;
 //		
 //		// Split the string
-//		split = line.split("|");
-//		numbers = split[1].split(" ");
+//		split = line.split("\\|");
+//		numbers = split[1].replaceFirst(" ", "").split(" ");
 //		key = new ArrayList<Integer>();
 //		
 //		for (String i : numbers) {
@@ -605,7 +602,7 @@ public class CodeEvalTestingArea {
 //		
 //		output = new StringBuffer("");
 //		for (Integer j : key) {
-//			output.append(split[0].substring(j, j));
+//			output.append(split[0].substring(j - 1, j));
 //		}
 //		
 //		System.out.println(output);
@@ -614,43 +611,82 @@ public class CodeEvalTestingArea {
 		 * Time difference
 		 */
 		
-		//Initiate
-		String[] split;
-		Date dateOne, dateTwo;
-		long timeFirst, timeLast;
-		SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm:ss");
-		String[] input = {"14:01:57 12:47:11",
-				"13:09:42 22:16:15",
-				"08:08:06 08:38:28",
-				"23:35:07 02:49:59",
-				"13:45:00 14:15:00"};
+//		//Initiate
+//		String[] split;
+//		Date dateOne, dateTwo;
+//		long timeFirst, timeLast;
+//		SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm:ss");
+//		String[] input = {"14:01:57 12:47:11",
+//				"13:09:42 22:16:15",
+//				"08:08:06 08:38:28",
+//				"23:35:07 02:49:59",
+//				"13:45:00 14:15:00"};
+//		
+//		for (String line : input){
+//			split = line.split(" ");
+//			
+//			dateOne = new Date();
+//			dateTwo = new Date();
+//			try {
+//				dateOne = timeFormat.parse(split[0]);
+//				dateTwo = timeFormat.parse(split[1]);
+//			} catch (ParseException e) {
+//				System.out.println(e);
+//			}
+//			
+//			System.out.println(dateOne.compareTo(dateTwo));
+//			
+//			if(dateOne.compareTo(dateTwo) > 0){
+//				timeFirst = dateOne.getTime();
+//				timeLast = dateTwo.getTime();
+//			} else {
+//				timeFirst = dateTwo.getTime();
+//				timeLast = dateOne.getTime();
+//			}
+//			
+//			System.out.println(timeFormat.format(new Date(timeFirst - timeLast - (60*60*1000))));
+//		}
 		
-		for (String line : input){
-			split = line.split(" ");
-			
-			dateOne = new Date();
-			dateTwo = new Date();
-			try {
-				dateOne = timeFormat.parse(split[0]);
-				dateTwo = timeFormat.parse(split[1]);
-			} catch (ParseException e) {
-				System.out.println(e);
-			}
-			
-			System.out.println(dateOne.compareTo(dateTwo));
-			
-			if(dateOne.compareTo(dateTwo) > 0){
-				timeFirst = dateOne.getTime();
-				timeLast = dateTwo.getTime();
-			} else {
-				timeFirst = dateTwo.getTime();
-				timeLast = dateOne.getTime();
-			}
-			
-			System.out.println(timeFormat.format(new Date(timeFirst - timeLast - (60*60*1000))));
-		}
+		/*
+		 * Compare pointws
+		 */
 		
-		
+//		String line;
+//		String [] split;
+//		int[] cordinates = new int[4];
+//		StringBuffer output;
+//		
+//		// Coersians
+//		String[] input = {"0 0 1 5","12 13 12 13","0 1 0 5"};
+//		
+//		for (String line : input) {
+//			split = line.split(" ");
+//			for (int i = 0; i < split.length; i++){
+//				cordinates[i] = Integer.parseInt(split[i]);
+//			}
+//			
+//			output = new StringBuffer("");
+//			
+//			if (cordinates[1] < cordinates[3]){
+//				output.append("N");
+//			} else if (cordinates[1] > cordinates[3]){
+//				output.append("S");
+//			}
+//			
+//			if (cordinates[0] > cordinates[2]) {
+//				output.append("W");
+//			} else if (cordinates[0] < cordinates[2]){
+//				output.append("E");
+//			}
+//			
+//			if(output.length()==0) {
+//				output.append("here");
+//			}
+//			
+//			System.out.println(output);
+//		}
 
+		
+		
 	}
 }
