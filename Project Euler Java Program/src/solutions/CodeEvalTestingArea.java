@@ -1,6 +1,8 @@
 package solutions;
 
-import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class CodeEvalTestingArea {
@@ -585,28 +587,70 @@ public class CodeEvalTestingArea {
 		 * Find a writer
 		 */
 		
-		String line = "osSE5Gu0Vi8WRq93UvkYZCjaOKeNJfTyH6tzDQbxFm4M1ndXIPh27wBA rLclpg| 3 35 27 62 51 27 46 57 26 10 46 63 57 45 15 43 53";
+//		String line = "osSE5Gu0Vi8WRq93UvkYZCjaOKeNJfTyH6tzDQbxFm4M1ndXIPh27wBA rLclpg| 3 35 27 62 51 27 46 57 26 10 46 63 57 45 15 43 53";
+//		
+//		// Declare
+//		String[] split, numbers;
+//		ArrayList<Integer> key;
+//		StringBuffer output;
+//		
+//		// Split the string
+//		split = line.split("|");
+//		numbers = split[1].split(" ");
+//		key = new ArrayList<Integer>();
+//		
+//		for (String i : numbers) {
+//			key.add(Integer.parseInt(i));
+//		}
+//		
+//		output = new StringBuffer("");
+//		for (Integer j : key) {
+//			output.append(split[0].substring(j, j));
+//		}
+//		
+//		System.out.println(output);
 		
-		// Declare
-		String[] split, numbers;
-		ArrayList<Integer> key;
-		StringBuffer output;
+		/*
+		 * Time difference
+		 */
 		
-		// Split the string
-		split = line.split("|");
-		numbers = split[1].split(" ");
-		key = new ArrayList<Integer>();
+		//Initiate
+		String[] split;
+		Date dateOne, dateTwo;
+		long timeFirst, timeLast;
+		SimpleDateFormat timeFormat = new SimpleDateFormat("kk:mm:ss");
+		String[] input = {"14:01:57 12:47:11",
+				"13:09:42 22:16:15",
+				"08:08:06 08:38:28",
+				"23:35:07 02:49:59",
+				"13:45:00 14:15:00"};
 		
-		for (String i : numbers) {
-			key.add(Integer.parseInt(i));
+		for (String line : input){
+			split = line.split(" ");
+			
+			dateOne = new Date();
+			dateTwo = new Date();
+			try {
+				dateOne = timeFormat.parse(split[0]);
+				dateTwo = timeFormat.parse(split[1]);
+			} catch (ParseException e) {
+				System.out.println(e);
+			}
+			
+			System.out.println(dateOne.compareTo(dateTwo));
+			
+			if(dateOne.compareTo(dateTwo) > 0){
+				timeFirst = dateOne.getTime();
+				timeLast = dateTwo.getTime();
+			} else {
+				timeFirst = dateTwo.getTime();
+				timeLast = dateOne.getTime();
+			}
+			
+			System.out.println(timeFormat.format(new Date(timeFirst - timeLast - (60*60*1000))));
 		}
 		
-		output = new StringBuffer("");
-		for (Integer j : key) {
-			output.append(split[0].substring(j, j));
-		}
 		
-		System.out.println(output);
 
 	}
 }
