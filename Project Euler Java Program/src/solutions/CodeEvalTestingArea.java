@@ -685,8 +685,32 @@ public class CodeEvalTestingArea {
 //			
 //			System.out.println(output);
 //		}
-
+		
+		
+		/*
+		 * Multiply lists
+		 */
+		
+		String line = "9 0 6 | 15 14 9";
+		String[] split,left,right;
+		StringBuffer output;
+		
+		split = line.split(" \\| ");
+		left = split[0].split(" ");
+		right = split[1].split(" ");
+		output = new StringBuffer("");
+		
+		for(int i = 0; i < left.length; i++) {
+			output.append(Integer.parseInt(left[i])*Integer.parseInt(right[i]));
+			output.append(" ");
+		}
+		
+		System.out.println(output);
+		
+		
 		
 		
 	}
+	
+	
 }
