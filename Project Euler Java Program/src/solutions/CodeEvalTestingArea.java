@@ -1,5 +1,7 @@
 package solutions;
 
+import java.util.ArrayList;
+
 
 
 public class CodeEvalTestingArea {
@@ -691,24 +693,139 @@ public class CodeEvalTestingArea {
 		 * Multiply lists
 		 */
 		
-		String line = "9 0 6 | 15 14 9";
-		String[] split,left,right;
-		StringBuffer output;
+//		String line = "9 0 6 | 15 14 9";
+//		String[] split,left,right;
+//		StringBuffer output;
+//		
+//		split = line.split(" \\| ");
+//		left = split[0].split(" ");
+//		right = split[1].split(" ");
+//		output = new StringBuffer("");
+//		
+//		for(int i = 0; i < left.length; i++) {
+//			output.append(Integer.parseInt(left[i])*Integer.parseInt(right[i]));
+//			output.append(" ");
+//		}
+//		
+//		System.out.println(output);
 		
-		split = line.split(" \\| ");
-		left = split[0].split(" ");
-		right = split[1].split(" ");
-		output = new StringBuffer("");
+		/*
+		 * Stack Implementation
+		 */
+//		String[] input = {"1 2 3 4", "10 -2 3 4"};
+//		String[] split;
+//		StringBuffer output;
+//		
+//		for(String line : input) {
+//			output =  new StringBuffer("");
+//			split = line.split(" ");
+//			for(int i = split.length - 1; i >= 0; i = i - 2) {
+//				output.append(split[i]);
+//				
+//				if(i - 2 >= 0){
+//					output.append(" ");
+//				}
+//			}
+//			System.out.println(output);
+//		}
 		
-		for(int i = 0; i < left.length; i++) {
-			output.append(Integer.parseInt(left[i])*Integer.parseInt(right[i]));
-			output.append(" ");
+		/*
+		 * Find a square
+		 */
+		
+		class CoOrdinate {
+			int x = 0;
+			int y = 0;
+			
+			// Constructor
+			CoOrdinate(String position) {
+				String[] split = position.split("");
+				x = Integer.parseInt(split[1]);
+				y = Integer.parseInt(split[3]);
+			}
+			
+			// Getters
+			public int getX() {
+				return(x);
+			}
+			public int getY() {
+				return(y);
+			}
+			
 		}
 		
-		System.out.println(output);
+		class PossibleSquare {
+			ArrayList<CoOrdinate>  points;
+			String[] split;
+			int pOne, pTwo, pThree, pFour, dOne, dTwo, dThree, dFour;
+			boolean isSq;
+			
+			PossibleSquare(String line) {
+				
+				// Default initial values
+				pOne = 0;
+				pTwo = 0;
+				pThree = 0;
+				pFour = 0;
+				
+				dOne = 0;
+				dTwo = 0;
+				dThree = 0;
+				dFour = 0;
+
+				isSq = false;
+				
+				// Set up coordinates
+				split = line.split(", ");
+				points = new ArrayList<CoOrdinate>();
+				for (String i : split) {
+					points.add(new CoOrdinate(i));
+				}
+				
+				// Find the matching x y points
+				for(int i = 1; i < points.size(); i++) {
+					if(points.get(i).getY() == points.get(pOne).getY()){
+						pTwo = i;
+					} else if (points.get(i).getX() == points.get(pOne).getX()){
+						pThree = i;
+					} else {
+						pFour = i;
+					}
+				}
+				
+//				System.out.println(pOne + " " + pTwo + " " + pThree + " " + pFour + " ");
+				
+				// See if points don't match
+				if(pTwo == 0 || pThree == 0){
+					isSq = false;
+				} else {
+					// Check horizontal distances
+					dOne = Math.abs(points.get(pOne).getX() - points.get(pTwo).getX());
+					dTwo = Math.abs(points.get(pThree).getX() - points.get(pFour).getX());
+					
+					// Vertical
+					dThree = Math.abs(points.get(pOne).getY() - points.get(pThree).getY());
+					dFour = Math.abs(points.get(pTwo).getY() - points.get(pFour).getY());
+					
+					isSq = dOne == dTwo && dThree == dFour && dOne == dThree;
+				}
+				
+				System.out.println(isSq);
+				
+			}
+		}
 		
+		String[] tests = {"(1,6), (6,7), (2,7), (9,1)",
+			"(4,1), (3,4), (0,5), (1,2)",
+			"(4,6), (5,5), (5,6), (4,5)"};
 		
-		
+		for(String line : tests) {
+
+			PossibleSquare check = new PossibleSquare(line);			
+			
+			
+		}
+
 		
 	}
 	
