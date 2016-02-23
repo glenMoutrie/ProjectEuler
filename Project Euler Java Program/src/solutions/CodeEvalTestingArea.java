@@ -733,98 +733,107 @@ public class CodeEvalTestingArea {
 		 * Find a square
 		 */
 		
-		class CoOrdinate {
-			int x = 0;
-			int y = 0;
-			
-			// Constructor
-			CoOrdinate(String position) {
-				String[] split = position.split("");
-				x = Integer.parseInt(split[1]);
-				y = Integer.parseInt(split[3]);
-			}
-			
-			// Getters
-			public int getX() {
-				return(x);
-			}
-			public int getY() {
-				return(y);
-			}
-			
+//		class CoOrdinate {
+//			int x = 0;
+//			int y = 0;
+//			
+//			// Constructor
+//			CoOrdinate(String position) {
+//				String[] split = position.split("");
+//				x = Integer.parseInt(split[1]);
+//				y = Integer.parseInt(split[3]);
+//			}
+//			
+//			// Getters
+//			public int getX() {
+//				return(x);
+//			}
+//			public int getY() {
+//				return(y);
+//			}
+//			
+//		}
+//		
+//		class PossibleSquare {
+//			ArrayList<CoOrdinate>  points;
+//			String[] split;
+//			int pOne, pTwo, pThree, pFour, dOne, dTwo, dThree, dFour;
+//			boolean isSq;
+//			
+//			PossibleSquare(String line) {
+//				
+//				// Default initial values
+//				pOne = 0;
+//				pTwo = 0;
+//				pThree = 0;
+//				pFour = 0;
+//				
+//				dOne = 0;
+//				dTwo = 0;
+//				dThree = 0;
+//				dFour = 0;
+//
+//				isSq = false;
+//				
+//				// Set up coordinates
+//				split = line.split(", ");
+//				points = new ArrayList<CoOrdinate>();
+//				for (String i : split) {
+//					points.add(new CoOrdinate(i));
+//				}
+//				
+//				// Find the matching x y points
+//				for(int i = 1; i < points.size(); i++) {
+//					if(points.get(i).getY() == points.get(pOne).getY()){
+//						pTwo = i;
+//					} else if (points.get(i).getX() == points.get(pOne).getX()){
+//						pThree = i;
+//					} else {
+//						pFour = i;
+//					}
+//				}
+//				
+////				System.out.println(pOne + " " + pTwo + " " + pThree + " " + pFour + " ");
+//				
+//				// See if points don't match
+//				if(pTwo == 0 || pThree == 0){
+//					isSq = false;
+//				} else {
+//					// Check horizontal distances
+//					dOne = Math.abs(points.get(pOne).getX() - points.get(pTwo).getX());
+//					dTwo = Math.abs(points.get(pThree).getX() - points.get(pFour).getX());
+//					
+//					// Vertical
+//					dThree = Math.abs(points.get(pOne).getY() - points.get(pThree).getY());
+//					dFour = Math.abs(points.get(pTwo).getY() - points.get(pFour).getY());
+//					
+//					isSq = dOne == dTwo && dThree == dFour && dOne == dThree;
+//				}
+//				
+//				System.out.println(isSq);
+//				
+//			}
+//		}
+//		
+//		String[] tests = {"(1,6), (6,7), (2,7), (9,1)",
+//			"(4,1), (3,4), (0,5), (1,2)",
+//			"(4,6), (5,5), (5,6), (4,5)"};
+//		
+//		for(String line : tests) {
+//
+//			PossibleSquare check = new PossibleSquare(line);			
+//			
+//			
+//		}
+		
+		String[] inputs = {"Hello,lloHe", "Basefont,tBasefon", "asdfas,fffff"};
+		String[] split;
+		
+		for(String line : inputs) {
+			split = line.split(",");
+			System.out.println(split[1].concat(split[1]).contains(split[0]) ? "True" : "False");
 		}
 		
-		class PossibleSquare {
-			ArrayList<CoOrdinate>  points;
-			String[] split;
-			int pOne, pTwo, pThree, pFour, dOne, dTwo, dThree, dFour;
-			boolean isSq;
-			
-			PossibleSquare(String line) {
-				
-				// Default initial values
-				pOne = 0;
-				pTwo = 0;
-				pThree = 0;
-				pFour = 0;
-				
-				dOne = 0;
-				dTwo = 0;
-				dThree = 0;
-				dFour = 0;
-
-				isSq = false;
-				
-				// Set up coordinates
-				split = line.split(", ");
-				points = new ArrayList<CoOrdinate>();
-				for (String i : split) {
-					points.add(new CoOrdinate(i));
-				}
-				
-				// Find the matching x y points
-				for(int i = 1; i < points.size(); i++) {
-					if(points.get(i).getY() == points.get(pOne).getY()){
-						pTwo = i;
-					} else if (points.get(i).getX() == points.get(pOne).getX()){
-						pThree = i;
-					} else {
-						pFour = i;
-					}
-				}
-				
-//				System.out.println(pOne + " " + pTwo + " " + pThree + " " + pFour + " ");
-				
-				// See if points don't match
-				if(pTwo == 0 || pThree == 0){
-					isSq = false;
-				} else {
-					// Check horizontal distances
-					dOne = Math.abs(points.get(pOne).getX() - points.get(pTwo).getX());
-					dTwo = Math.abs(points.get(pThree).getX() - points.get(pFour).getX());
-					
-					// Vertical
-					dThree = Math.abs(points.get(pOne).getY() - points.get(pThree).getY());
-					dFour = Math.abs(points.get(pTwo).getY() - points.get(pFour).getY());
-					
-					isSq = dOne == dTwo && dThree == dFour && dOne == dThree;
-				}
-				
-				System.out.println(isSq);
-				
-			}
-		}
-		
-		String[] tests = {"(1,6), (6,7), (2,7), (9,1)",
-			"(4,1), (3,4), (0,5), (1,2)",
-			"(4,6), (5,5), (5,6), (4,5)"};
-		
-		for(String line : tests) {
-
-			PossibleSquare check = new PossibleSquare(line);			
-			
-			
-		}
 
 		
 	}
