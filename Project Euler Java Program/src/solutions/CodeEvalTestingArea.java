@@ -826,13 +826,43 @@ public class CodeEvalTestingArea {
 //			
 //		}
 		
-		String[] inputs = {"Hello,lloHe", "Basefont,tBasefon", "asdfas,fffff"};
-		String[] split;
+		/*
+		 * Rotated string
+		 */
 		
-		for(String line : inputs) {
-			split = line.split(",");
-			System.out.println(split[1].concat(split[1]).contains(split[0]) ? "True" : "False");
+//		String[] inputs = {"Hello,lloHe", "Basefont,tBasefon", "asdfas,fffff"};
+//		String[] split;
+//		
+//		for(String line : inputs) {
+//			split = line.split(",");
+//			System.out.println(split[1].concat(split[1]).contains(split[0]) ? "True" : "False");
+//		}
+		
+		/*
+		 * Digit Statisitcs
+		 */
+		
+		String[] input = {"2 5", "2 10"};
+		String[] split;
+		int a, n, reps, remain;
+		
+		for (String line : input) {
+			split = line.split(" ");
+			a = Integer.parseInt(split[0]);
+			n = Integer.parseInt(split[1]);
+			
+			int[] totals = {0,0,0,0,0,0,0,0,0};
+			
+			if (a == 1 || a == 5 || a == 6) {
+				totals[a - 1] = n;
+			} else if (a == 2) {
+				reps = n/4;
+				remain = n%5;
+								
+			}
+			
 		}
+		
 		
 
 		
