@@ -67,7 +67,7 @@ clean <- function (x) {
 	output <- mapply(indPaste,1:8,x[-9])
 	paste0("0: 0, ",paste0(append(output, paste0("9: ",x[9])), collapse =""))
 }
-cat(clean(do.call(generateSeries,buildInputs("2 8"))),"\n")
+cat(clean(do.call(generateSeries,buildInputs("9 1"))),"\n")
 # for (i in 1:9) {
 # 	cat(paste0(generateSeriesBad(i,100), collapse = " "),"\n")
 # }
