@@ -1,5 +1,6 @@
 package basicTools;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class Palindrome {
@@ -7,6 +8,14 @@ public class Palindrome {
 
 	// Integer version
 	public static boolean isPalindrome(Integer number) {
+		return(isPalindrome(number.toString()));
+	}
+	
+	public static boolean isPalindrome(Long number) {
+		return(isPalindrome(number.toString()));
+	}
+	
+	public static boolean isPalindrome(BigInteger number) {
 		return(isPalindrome(number.toString()));
 	}
 

@@ -26,7 +26,7 @@ isPalindrome <- function(num) {
 findPalindrome <- function(value){
 	iterations <- 0
 	is.palindrome <- isPalindrome(value)
-	while(!is.palindrome || iterations == 100) {
+	while(!is.palindrome || iterations == 50) {
 		value <- sumRotate(value)
 		is.palindrome <- isPalindrome(value)
 		iterations <- iterations + 1
@@ -34,4 +34,4 @@ findPalindrome <- function(value){
 	cat(paste0(iterations," ",as.character(value)))
 }
 
-for(i in 1:100) {findPalindrome(i); cat("\n")}
+for(i in 1:10000) {findPalindrome(i); cat("\n")}
