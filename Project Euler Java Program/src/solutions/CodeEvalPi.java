@@ -6,8 +6,8 @@ import java.math.RoundingMode;
 public class CodeEvalPi {
 	// Initial funciton
 		public static BigDecimal f(BigDecimal value, BigDecimal estimate){
-			BigDecimal sum = BigDecimal()
-			BigDecimal cosine = (new BigDecimal(0.5)));
+			BigDecimal sum = new BigDecimal("0");
+			BigDecimal cosine = new BigDecimal("0.5");
 			estimate = estimate.add(estimate);
 			return(estimate);
 		}

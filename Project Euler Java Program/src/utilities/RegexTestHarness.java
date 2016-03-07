@@ -1,4 +1,6 @@
-import java.io.Console;
+package utilities;
+
+import java.io.*;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
