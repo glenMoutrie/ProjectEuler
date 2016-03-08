@@ -133,14 +133,15 @@ public class Factors {
 	}
 	
 	public static void main(String... args){
-		ArrayList<Integer> primeValues = new ArrayList<Integer>(1000);
-		primeValues = primeSieve(1000);
+		ArrayList<Integer> primeValues = new ArrayList<Integer>(1000000);
+		primeValues = primeSieve(1000000);
 		tokenisePrimes(123);
 		Integer sum = 0;
 		for(int i = 0; i < primeValues.size(); i ++){
-			sum = sum + primeValues.get(i);
+			System.out.println(primeValues.get(i));
+//			sum = sum + primeValues.get(i);
 		}
-		System.out.println(sum);
+//		System.out.println(sum);
 		
 	}
 	
