@@ -1,6 +1,6 @@
 package solutions;
 
-import java.util.ArrayList;
+import java.math.BigInteger;
 
 
 
@@ -862,7 +862,6 @@ public class CodeEvalTestingArea {
 //			}
 //			
 //		}
-		
 		
 
 		
