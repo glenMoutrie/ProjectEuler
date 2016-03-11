@@ -868,32 +868,32 @@ public class CodeEvalTestingArea {
 		 * Read more
 		 */
 		
-		String[] input = {"Tom exhibited.",
-				"Amy Lawrence was proud and glad, and she tried to make Tom see it in her face - but he wouldn't look.",
-				"Tom was tugging at a button-hole and looking sheepish.",
-				"Two thousand verses is a great many - very, very great many.",
-				"Tom's mouth watered for the apple, but he stuck to his work."};
-		String[] split;
-		int total;
-		StringBuffer output;
-		Iterator<String> iterator;
-		
-		for (String line : input) {
-			split = line.split(" ");
-			if(line.length() > 55) {
-				output = new StringBuffer("");
-				iterator = new Iterator<String>() {
-				};
-				
-				while(iterator.next().length() < 55-total){
-					
-				}
-				
-//				System.out.println(line.substring(0, 39).concat("...<Read More>"));
-			} else {
-				System.out.println(line);
-			}
-		}
+//		String[] input = {"Tom exhibited.",
+//				"Amy Lawrence was proud and glad, and she tried to make Tom see it in her face - but he wouldn't look.",
+//				"Tom was tugging at a button-hole and looking sheepish.",
+//				"Two thousand verses is a great many - very, very great many.",
+//				"Tom's mouth watered for the apple, but he stuck to his work."};
+//		String[] split;
+//		int total;
+//		StringBuffer output;
+//		Iterator<String> iterator;
+//		
+//		for (String line : input) {
+//			split = line.split(" ");
+//			if(line.length() > 55) {
+//				output = new StringBuffer("");
+//				iterator = new Iterator<String>() {
+//				};
+//				
+//				while(iterator.next().length() < 55-total){
+//					
+//				}
+//				
+////				System.out.println(line.substring(0, 39).concat("...<Read More>"));
+//			} else {
+//				System.out.println(line);
+//			}
+//		}
 		
 
 		

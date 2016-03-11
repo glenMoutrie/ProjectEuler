@@ -65,6 +65,6 @@ public class Euler72 {
 			
 		}
 		
-		
+		return(0);
 	}
 }

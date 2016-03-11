@@ -3,7 +3,7 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class sort {
+public class Sort {
 
 	/* 
 	 * Implements Insertion sort a per page 18 of Introduction to Algorithms
@@ -28,7 +28,7 @@ public class sort {
 		} else {
 			// Sorting the list in a decreasing order
 			for (int j = unsorted.size() - 2; j >= 0; j--) {
-				int key = unsorted.get(j);
+			 	int key = unsorted.get(j);
 
 				// Shifting previously sorted values to the left
 				int i = j + 1;
