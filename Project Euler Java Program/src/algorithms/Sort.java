@@ -42,6 +42,37 @@ public class Sort {
 
 		return(unsorted);
 	}
+	
+	public static int[] merge(int[] A, int p, int q, int r) {
+		
+		// Indexing for the two splits
+		int nOne = q - p + 1;
+		int nTwo = r - q;
+		
+		// Initiate the two splits
+		int[] right = new int[nOne + 1];
+		int[] left = new int[nTwo + 1];
+		
+		// Populate left
+		for(int i = 1; i <= nOne; i++) {
+			left[i] = A[p + i - 1];
+		}
+		
+		// Populate right
+		for(int j = 1; j <= nTwo; j++) {
+			right[j] = A[q + j];
+		}
+		
+		// Add sentinal cards
+		// (usually infinity, but I've just set it to the int storage limit)
+		left[nOne + 1] = Integer.MAX_VALUE;
+		right[nTwo + 1] = Integer.MAX_VALUE;
+		
+		int i = 1;
+		
+		
+		return(A);
+	}
 
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> unsorted) {
 		return(insertionSort(unsorted, true));
