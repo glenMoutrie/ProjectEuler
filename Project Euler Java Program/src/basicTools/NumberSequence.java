@@ -2,6 +2,8 @@ package basicTools;
 
 import java.util.ArrayList;
 
+import throwables.NumberOverflow;
+
 public class NumberSequence {
 	
 	// Constructor
@@ -37,6 +39,18 @@ public class NumberSequence {
 		
 	}
 	
+	public static int fibbonaciNumberRecurse(int n) throws NumberOverflow {
+		if (n == 1) {
+			return(1);
+		} else if (n <= 0) {
+			return(0);
+		} else if (n > 46) {
+			throw new NumberOverflow("Larger than possible");
+		}
+		return(fibbonaciNumberRecurse(n - 2) + fibbonaciNumberRecurse(n - 1));
+		
+	}
+	
 	// Provides the last integer
 	public static int fibonacciNumber(int length) {
 		// Set up each of the variables
@@ -60,6 +74,13 @@ public class NumberSequence {
 	public static void main(String[] args) {
 		String line = "12";
 		System.out.println(fibonacciNumber(Integer.parseInt(line)));
+		for(int i = 0; i <= 100; i++) {
+			try {
+				System.out.println(fibbonaciNumberRecurse(i) + " Input: " +  i);
+			} catch (NumberOverflow e) {
+				System.out.println("Creates a int value that is too large");
+			}
+		}
 	}
 	
 }
