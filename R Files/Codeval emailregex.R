@@ -1,7 +1,7 @@
 checkEmail <- function(input) {
 	
 	# Acceptable local carachters
-	local.char <- "\\!\\#\\$\\%\\&'*\\+\\-\\/\\=\\?\\^\\_\\`\\{\\|\\}\\~A-Za-z0-9"
+	local.char <- "\\!\\#\\$\\%\\&'*\\+\\-\\/\\=\\?\\^\\_\\`\\{\\|\\}\\~A-Za-z\\d"
 	
 	# Regex components
 	local <- paste0("^[", local.char,"]+(.[", local.char,"]+)*")
@@ -16,7 +16,6 @@ checkEmail <- function(input) {
 
 # "\!\#\$\%\&\'\*\+\-\/\=\?\^\_\`\{\|\}\~\.{1}"
 
-checkEmail("glen.1.1out.rie@g.m.a.i.l.com")
-checkEmail("A@b@c@example.com")
+checkEmail("glen.1.1out..rie@g.m.a.i.l.com")
 checkEmail("glenmoutrie@gmail.co.org")
 checkEmail("afas")
