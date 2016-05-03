@@ -9,33 +9,62 @@ public class Euler26 {
 	public static int brent(String[] series) {
 		int tortoise = 0;
 		int hare = 0;
-		int result;
+		int diff;
+		int mu;
+		int lambda;
+		
 		boolean equal = false;
 		
 		while(!equal && hare < series.length - 2) {
-			hare = hare + 2;
+			hare += 2;
 			tortoise++;
 			
 			equal = series[tortoise].equals(series[hare]);
-			
-			result = hare - tortoise;
 			
 		}
 		
 		if(!equal) {
 			System.out.println("Not found");
 			return(0);
+		} else {
+			diff = hare - tortoise;
 		}
 		
-		while(tortoise < hare) {
+		int limit = series.length - 1;
+		mu = 0;
+		tortoise = 0;
+		
+		while(hare < limit) {
 			tortoise++;
+			hare++;
+			mu++;
+			
 			if(series[tortoise].equals(series[hare])) {
-				result = tortoise - hare;
 				break;
 			}
 		}
 		
-		return(hare - tortoise);
+		lambda = 1;
+		hare = tortoise + 1;
+		
+		boolean found = false;
+		
+		while(!found & hare < limit) {
+			hare++;
+			lambda++;
+			
+			
+			if (series[tortoise].equals(series[hare]) & diff%lambda == 0) {
+				found = true;
+			}
+			
+		}
+		
+		if (lambda == 9998) {
+			lambda = 0;
+		}
+		
+		return(lambda);
 
 	}
 	

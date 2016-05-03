@@ -55,7 +55,8 @@ public class Sort {
 		
 		// Populate left
 		for(int i = 1; i <= nOne; i++) {
-			left[i] = A[p + i - 1];
+			System.out.println(i);
+			left[i - 1] = A[p + i - 1];
 		}
 		
 		// Populate right
@@ -69,6 +70,17 @@ public class Sort {
 		right[nTwo + 1] = Integer.MAX_VALUE;
 		
 		int i = 1;
+		int j = 1;
+		
+		for(int k = p; k <= r; k++) {
+			if (left[i] <= right[i]) {
+				A[k] = left[i];
+				i++;
+			} else {
+				A[k] = right[i];
+				j++;
+			}
+		}
 		
 		
 		return(A);
@@ -88,6 +100,10 @@ public class Sort {
 
 		System.out.println(sorted);
 		System.out.println(insertionSort(A, false));
+		
+		int[] b = {2, 4, 5, 7, 1, 2, 3, 6};
+		
+		System.out.println(merge(b,0,3,7));
 
 	}
 }

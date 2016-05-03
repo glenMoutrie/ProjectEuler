@@ -5,12 +5,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
+import org.omg.CORBA.DoubleSeqHolder;
+
 public class Factors {
 	
 	public static ArrayList<Integer> primeSieve(Integer highest) {
 		
 		//Declare ArrayList
-		ArrayList<Integer> results = new ArrayList<Integer>(highest);
+		ArrayList<Integer> results = new ArrayList<Integer>((int) Math.round(Math.sqrt(highest)));
 		
 		// Initially populate the list with odd numbers (but set one as two)
 		for (int i = 1; i <= highest; i = i + 2){
