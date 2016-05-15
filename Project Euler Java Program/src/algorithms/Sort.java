@@ -43,26 +43,20 @@ public abstract class Sort {
 		return(unsorted);
 	}
 	
-	public static Integer[] merge(Integer[] A, int p, int q, int r) {
+	private static Integer[] merge(Integer[] A, int p, int q, int r) {
 		
 		// Indexing for the two splits
 		int nOne = q - p + 1;
-		int nTwo = r - q;
+		int nTwo = r - q + 1;
 		
 		// Initiate the two splits
-		int[] right = new int[nOne + 1];
-		int[] left = new int[nTwo + 1];
+		int[] right = new int[nOne + 2];
+		int[] left = new int[nTwo + 2];
 		int i, j;
 		
 		// Populate left
-<<<<<<< Updated upstream
-		for(int i = 1; i <= nOne; i++) {
-			System.out.println(i);
-			left[i - 1] = A[p + i - 1];
-=======
 		for(i = 0; i < nOne; i++) {
-			left[i] = A[p + i - 1];
->>>>>>> Stashed changes
+			left[i] = A[p + i];
 		}
 		
 		// Populate right
@@ -72,29 +66,15 @@ public abstract class Sort {
 		
 		// Add sentinal cards
 		// (usually infinity, but I've just set it to the int storage limit)
+
 		left[nOne] = Integer.MAX_VALUE;
 		right[nTwo] = Integer.MAX_VALUE;
 		
-<<<<<<< Updated upstream
-		int i = 1;
-		int j = 1;
-		
-		for(int k = p; k <= r; k++) {
-			if (left[i] <= right[i]) {
-				A[k] = left[i];
-				i++;
-			} else {
-				A[k] = right[i];
-				j++;
-			}
-		}
-=======
 		i = 0;
 		j = 0;
->>>>>>> Stashed changes
 		
 		// Now perform the merge sort
-		for (int k = p; k < r; k++) {
+		for (int k = p; k <= r; k++) {
 			if (left[i] <= right[j]) {
 				A[k] = left[i];
 				i++;
@@ -107,7 +87,24 @@ public abstract class Sort {
 		return(A);
 	}
 	
-	
+	public static Integer[] mergeSort(Integer[] A, int p, int r) {
+		ArrayList<Integer> handler = new ArrayList<Integer>(A.length);
+		
+		if (p < r) {
+			int q = (int) Math.floor((p+r)*0.5);
+			handler.addAll(new ArrayList<Integer>(Arrays.asList(mergeSort((Arrays.copyOfRange(A, p, q)), p, q))));
+			handler.addAll(new ArrayList<Integer>(Arrays.asList(mergeSort((Arrays.copyOfRange(A, q + 1, r)), q + 1, r))));
+			
+			
+//			output.addAll(new ArrayList<Integer>(Arrays.asList(merge(A, p, q, r))));
+			return(merge(handler.toArray(new Integer[r]), p, q, r));
+			
+		} else {
+			return(A);
+		}
+		
+//		return((Integer[]) output.toArray());
+	}
 
 	public static ArrayList<Integer> insertionSort(ArrayList<Integer> unsorted) {
 		return(insertionSort(unsorted, true));
@@ -125,14 +122,14 @@ public abstract class Sort {
 		System.out.println(sorted);
 		System.out.println(insertionSort(A, false));
 		
-<<<<<<< Updated upstream
-		int[] b = {2, 4, 5, 7, 1, 2, 3, 6};
+		Integer[] b = {2, 4, 5, 7, 1, 2, 3, 6};
 		
-		System.out.println(merge(b,0,3,7));
-=======
-		Integer[] result = merge(a, 0,3,6);
+//		System.out.println(merge(b,0,3,7));
+		Integer[] result = merge(b,0,4
+				,7);
 		for(Integer i : result) System.out.println(i);
->>>>>>> Stashed changes
+		
+		mergeSort(b, 0, 8);
 
 	}
 }
