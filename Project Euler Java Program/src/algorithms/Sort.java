@@ -88,19 +88,32 @@ public abstract class Sort {
 	}
 	
 	public static Integer[] mergeSort(Integer[] A, int p, int r) {
+		
+		if (A.length > 0) {
+			String message = "";
+			for (Integer i : A) {
+				message += i.toString() + " ";
+			}
+			System.out.println(message);
+		} else {
+			System.out.println(A);
+		}
+		
+		
 		ArrayList<Integer> handler = new ArrayList<Integer>(A.length);
 		
-		if (p < r) {
+		if (p < r & A.length > 1) {
 			int q = (int) Math.floor((p+r)*0.5);
 			handler.addAll(new ArrayList<Integer>(Arrays.asList(mergeSort((Arrays.copyOfRange(A, p, q)), p, q))));
 			handler.addAll(new ArrayList<Integer>(Arrays.asList(mergeSort((Arrays.copyOfRange(A, q + 1, r)), q + 1, r))));
 			
-			
 //			output.addAll(new ArrayList<Integer>(Arrays.asList(merge(A, p, q, r))));
 			return(merge(handler.toArray(new Integer[r]), p, q, r));
 			
-		} else {
+		} else if (A.length == 1) {
 			return(A);
+		} else {
+			return(null);
 		}
 		
 //		return((Integer[]) output.toArray());
