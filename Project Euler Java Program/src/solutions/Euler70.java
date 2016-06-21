@@ -2,13 +2,11 @@ package solutions;
 
 import java.util.ArrayList;
 
-
-public class Euler69 {
-	
+public class Euler70 {
 	public static void main(String args[]) {
 		
 		// Totient
-		ArrayList<Integer> totient = basicTools.NumberSequence.eulerTotient(1000000);
+		ArrayList<Integer> totient = basicTools.NumberSequence.eulerTotient(10000000);
 		
 		double n = 1;
 		double max = 0;
@@ -20,9 +18,9 @@ public class Euler69 {
 			current = (n)/i;
 			
 			// If larger than max add it
-			if (current > max) {
+			if (current >= max) {
 				max = current;
-				System.out.println(max + " " + n);
+				System.out.println(max + " " + n + " " + i);
 			}
 			
 			// Add one more
@@ -30,5 +28,4 @@ public class Euler69 {
 		}
 		
 	}
-
 }
