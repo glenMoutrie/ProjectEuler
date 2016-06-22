@@ -1,6 +1,9 @@
 package basicTools;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+
+import algorithms.Table;
 
 public class NumberCharacteristics {
 	public static long reverseNumber(long initial) {
@@ -11,6 +14,24 @@ public class NumberCharacteristics {
 			initial = initial/10;
 		}
 		return(result);
+	}
+	
+	public static boolean isPermutation(Number x, Number y) {
+		
+		ArrayList<String> xS = new ArrayList<String>();
+		ArrayList<String> yS = new ArrayList<String>();
+		
+		for (String i : x.toString().split("")) xS.add(i);
+		for (String i : y.toString().split("")) yS.add(i);
+		
+		Table xF = new Table(xS);
+		Table yF = new Table(yS);
+		
+		return(xF.areEqual(yF));
+	}
+	
+	public static boolean isPermutation(Double x, Double y){
+		return(isPermutation(x.intValue(), y.intValue()));
 	}
 	
 	public static BigInteger reverseNumber(BigInteger initial) {
@@ -53,8 +74,15 @@ public class NumberCharacteristics {
 			}
 		}
 		System.out.println(total);
+		
+		System.out.println(isPermutation(12345678, 87654231));
+		
+		double x = 127.;
+		double y = 127.;
+		System.out.println(isPermutation(x, y));
 
 		
 	}
+	
 }
 

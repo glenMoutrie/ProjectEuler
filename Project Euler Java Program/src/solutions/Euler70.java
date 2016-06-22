@@ -7,25 +7,40 @@ public class Euler70 {
 		
 		// Totient
 		ArrayList<Integer> totient = basicTools.NumberSequence.eulerTotient(10000000);
+		totient.remove(0);
 		
-		double n = 1;
-		double max = 0;
+		double n = 2;
+		double max = 10;
 		double current;
+		double currentAnswer = 0;
+		
+		boolean isPermutation;
+		
 		
 		for (int i : totient) {
 
 			// Calculate current value
 			current = (n)/i;
+//			System.out.println("\r\n " + n + " " + i);
+			
 			
 			// If larger than max add it
-			if (current >= max) {
+			if (current <= max || n == 87109) {
 				max = current;
-				System.out.println(max + " " + n + " " + i);
+				isPermutation = basicTools.NumberCharacteristics.isPermutation(n, i);
+				
+				if (isPermutation) {
+					currentAnswer = n;
+				}
+				
+//				System.out.println(max + " " + n + " " + i + " " + isPermutation);
 			}
 			
 			// Add one more
 			n++;
 		}
+		
+		System.out.println(currentAnswer);
 		
 	}
 }
