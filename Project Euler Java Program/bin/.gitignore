@@ -1,12 +1,5 @@
-<<<<<<< Updated upstream
 /algorithms/
-/solutions/
 /basicTools/
-/throwables/
+/solutions/
 /matrix/
-=======
-/Euler72.class
-/solutions/
-/basicTools/
-/utilities/
->>>>>>> Stashed changes
+/throwables/
