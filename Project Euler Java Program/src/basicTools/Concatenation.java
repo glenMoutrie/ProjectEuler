@@ -1,5 +1,7 @@
 package basicTools;
 
+import java.util.ArrayList;
+
 public class Concatenation {
 	
 	public int lengthCheck(int number) {
@@ -25,10 +27,30 @@ public class Concatenation {
 		
 	}
 	
-	// Testing Area
-//	public static void main(String[] args){
+	public static int[] getDigitArray(int number) {
+		
+		ArrayList<Integer> output = new ArrayList<Integer>();
+		
+		// Split the digits up
+		do{
+			output.add(number % 10);
+			number /= 10;
+		} while (number > 0);
+		
+		// Convert to an int array
+		int[] baseArray = new int[output.size()];
+		int j = 0;
+		for (int i = baseArray.length - 1; i >= 0; i--) baseArray[j++] = output.get(i);
+		
+		return baseArray;
+	}
+	
+	public static void main(String[] args){
 //		System.out.println(lengthCheck(123495));
 //		System.out.println(concatenate(123,456));
-//	}
+		
+		int[] output = getDigitArray(123456);
+		for(int i : output) System.out.println(i);
+	}
 
 }

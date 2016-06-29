@@ -64,6 +64,52 @@ public class NumberCharacteristics {
 		return(isLychrel);
 	}
 	
+	private static enum Character {
+		UP,DOWN,BOUNCY,UNKNOWN
+	}
+	
+	public static boolean isBouncy(int number) {
+		
+		Character status = Character.UNKNOWN;
+		
+		int[] digits = Concatenation.getDigitArray(number);
+		int numDigits = digits.length;
+		int diff;
+		
+		if (numDigits < 3) {
+			return false;
+		}
+		
+		for (int i = 0; i < numDigits - 1; i++) {
+			diff = digits[i] - digits[i + 1];
+			
+			// If unkown
+			if (status == Character.UNKNOWN) {
+				if (diff < 0) {
+					status = Character.DOWN;
+				} else if (diff > 0) {
+					status = Character.UP;
+				}
+				
+			// If not unknown
+			} else if (status == Character.UP) {
+				if (diff < 0) {
+					status = Character.BOUNCY;
+				}
+			} else if (status == Character.DOWN) {
+				if (diff > 0) {
+					status = Character.BOUNCY;
+				}
+			}
+			
+			if (status == Character.BOUNCY) break;
+			
+		}
+		
+		return status == Character.BOUNCY;
+		
+	}
+	
 	public static void main(String args[]) {
 		long test = 12345;
 		System.out.println(reverseNumber(test));
@@ -80,9 +126,14 @@ public class NumberCharacteristics {
 		double x = 127.;
 		double y = 127.;
 		System.out.println(isPermutation(x, y));
+		
+		System.out.println(isBouncy(123444678));
+		System.out.println(isBouncy(864221));
+		System.out.println(isBouncy(1248964126));
 
 		
 	}
+	
 	
 }
 
