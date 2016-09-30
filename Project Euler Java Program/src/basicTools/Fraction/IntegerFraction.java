@@ -1,6 +1,8 @@
 package basicTools.Fraction;
 
-public class IntegerFraction {
+import basicTools.GeneralCalculation;
+
+public class IntegerFraction implements Comparable<IntegerFraction>{
 
 	private int numerator;
 	private int denominator;
@@ -15,7 +17,7 @@ public class IntegerFraction {
 	}
 
 	public void calculateValue() {
-		this.value = this.numerator/this.denominator;
+		this.value = ((double) this.numerator)/((double) this.denominator);
 	}
 
 	/*
@@ -71,12 +73,63 @@ public class IntegerFraction {
 	public int getNumerator() {
 		return this.numerator;
 	}
+	
+	public double getValue() {
+		return this.value;
+	}
 
 	public void print() {
 		System.out.println(this.numerator);
 		System.out.println("-------");
 		System.out.println(this.denominator);
 	}
+	
+	public void reduce() {
+		
+		int commonMultiple = GeneralCalculation.gcm(this.numerator, this.denominator);
+		
+		this.numerator = this.numerator/commonMultiple;
+		this.denominator = this.denominator/commonMultiple;
+		
+	}
 
+	@Override
+	public int compareTo(IntegerFraction o) {
+		
+		boolean numeratorCheck = this.numerator == o.getNumerator();
+		boolean denominatorCheck = this.denominator == o.getDenominator();
+		
+		if (numeratorCheck && denominatorCheck) {
+			return 0;
+		} else if (this.value > o.getValue()) {
+			return -1;
+		} else {
+			return 1;
+		}
+		
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (obj == null) return false;
+		
+		if(!IntegerFraction.class.isAssignableFrom(obj.getClass())) {
+			return false;
+		} else {
+			IntegerFraction compare = (IntegerFraction) obj;
+			
+//			boolean numeratorCheck = this.numerator == compare.getNumerator();
+//			boolean denominatorCheck = this.denominator == compare.getDenominator();
+			boolean valueCheck = this.value == compare.getValue();
+			
+			if(valueCheck) {
+				return(true);
+			} else {
+				return(false);
+			}
+		}
+		
+	}
 
 }
