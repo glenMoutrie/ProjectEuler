@@ -16,6 +16,23 @@ public class NumberCharacteristics {
 		return(result);
 	}
 	
+	public static ArrayList<Integer> getDigits(BigInteger x) {
+		
+		ArrayList<Integer> values = new ArrayList<Integer>();
+		
+		while(!x.equals(BigInteger.ZERO)) {
+			values.add(x.mod(BigInteger.TEN).intValue());
+			x = x.divide(BigInteger.TEN);
+		}
+		
+		return values;
+	}
+	
+	public static int getSumOfDigits(BigInteger x) {
+		ArrayList<Integer> digits = getDigits(x);
+		return digits.stream().mapToInt(i -> i).sum();
+	}
+	
 	public static boolean isPermutation(Number x, Number y) {
 		
 		ArrayList<String> xS = new ArrayList<String>();
@@ -131,6 +148,7 @@ public class NumberCharacteristics {
 		System.out.println(isBouncy(864221));
 		System.out.println(isBouncy(1248964126));
 
+		System.out.println(getSumOfDigits(new BigInteger("55555")));
 		
 	}
 	

@@ -14,12 +14,6 @@ public class SquareRootFraction {
 		this.n = n;
 	}
 	
-	private BigInteger update(BigInteger lagOne, BigInteger lagTwo) {
-		
-		// (lagOne*2)+lagTwo
-		return(lagOne.multiply(new BigInteger("2")).add(lagTwo));
-	}
-	
 	private void calculateDenominator() {
 		this.denominator = new ArrayList<BigInteger>(this.n);
 		
@@ -73,6 +67,7 @@ public class SquareRootFraction {
 	}
 	
 	public static void main(String[] args) {
+		
 		SquareRootFraction test = new SquareRootFraction(1000);
 		test.calculateDenominator();
 		test.calculateNumerator();

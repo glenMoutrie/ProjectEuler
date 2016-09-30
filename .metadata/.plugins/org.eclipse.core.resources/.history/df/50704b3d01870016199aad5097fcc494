@@ -1,0 +1,11 @@
+package solutions;
+
+public class Euler65 {
+
+	int[] updateSeq = new int[100];
+	
+	for (i = 0; i < updateSeq.length;){
+		
+	}
+	
+}

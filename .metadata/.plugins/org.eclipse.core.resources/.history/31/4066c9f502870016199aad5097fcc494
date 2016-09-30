@@ -1,0 +1,92 @@
+package basicTools;
+
+public class Fraction {
+
+	// Feilds
+	private int numerator;
+	private int denominator;
+	private double value;
+	
+	// Constructor
+	public Fraction(int numerator, int denominator) {
+		this.numerator = numerator;
+		this.denominator = denominator;
+		this.value = calculateValue();
+	}
+	
+	private double calculateValue() {
+		return(this.numerator/this.denominator);
+	}
+	
+	/*
+	 * Basic Numerical Methods
+	 */
+	
+	public Fraction multiply(Fraction x) {
+		
+		Fraction update = new Fraction(this.numerator*x.getNumerator(), 
+				this.numerator*x.getDenominator());
+		
+		update.calculateValue();
+		
+		return(update);
+		
+	}
+	
+	public Fraction add(Fraction x) {
+		
+		int denominator = this.denominator*x.getDenominator();
+		int numerator = (this.denominator*x.getNumerator()) + (x.getDenominator()*this.numerator);
+		
+		Fraction update = new Fraction(numerator, denominator);
+		
+		update.calculateValue();
+		
+		return(update);
+		
+	}
+	
+	public Fraction add(int x) {
+		
+		Fraction addition = new Fraction(x, 1);
+		
+		return(this.add(addition));
+	}
+	
+	public void invert() {
+		
+		// Switch the numerator and denominator
+		int newDenominiator = this.numerator;
+		this.numerator = this.denominator;
+		this.denominator = newDenominiator;
+		
+		// Update the value
+		calculateValue();
+	}
+	
+	/*
+	 * Utility method
+	 */
+	
+	public void print() {
+		System.out.println(this.numerator);
+		System.out.println("-------");
+		System.out.println(this.denominator);
+	}
+	
+	/*
+	 * Getters
+	 */
+	
+	public int getDenominator() {
+		return denominator;
+	}
+	
+	public int getNumerator() {
+		return numerator;
+	}
+	
+	public double getValue() {
+		return value;
+	}
+}

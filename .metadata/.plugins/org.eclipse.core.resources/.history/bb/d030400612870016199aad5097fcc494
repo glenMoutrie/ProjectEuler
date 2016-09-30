@@ -1,0 +1,28 @@
+package basicTools.Fraction;
+
+public interface Fraction {
+	
+		double calculateValue();
+		
+		/*
+		 * Basic Numerical Methods
+		 */
+		
+		public Fraction multiply(IntegerFraction x);
+		
+		public Fraction add(IntegerFraction x);
+		
+		public Fraction add(int x);
+		
+		public void invert();
+		
+		/*
+		 * Utility method
+		 */
+		
+		public void print() {
+			System.out.println(this.numerator);
+			System.out.println("-------");
+			System.out.println(this.denominator);
+		}
+}

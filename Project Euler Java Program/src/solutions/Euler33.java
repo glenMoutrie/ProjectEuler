@@ -1,7 +1,7 @@
 package solutions;
 
 import java.util.ArrayList;
-import basicTools.Fraction;
+import basicTools.FractionDeprecated;
 
 
 
@@ -32,14 +32,14 @@ public class Euler33 {
 
 	
 
-	public static ArrayList<Fraction> createFractions(double max) {
-		ArrayList<Fraction> allFractions = new ArrayList<Fraction>();
+	public static ArrayList<FractionDeprecated> createFractions(double max) {
+		ArrayList<FractionDeprecated> allFractions = new ArrayList<FractionDeprecated>();
 		
 		// Iterate over all fractions below one
 		for(double i = 1; i <= max; i++) {
 			for(double j = 1; j <= i; j++) {
 				// Calculate greatest common denominator
-				allFractions.add(new basicTools.Fraction(j,i));
+				allFractions.add(new basicTools.FractionDeprecated(j,i));
 
 			}
 		}
@@ -50,7 +50,7 @@ public class Euler33 {
 
 
 	public static void main(String[] args){
-		ArrayList<Fraction> result = createFractions(99);
+		ArrayList<FractionDeprecated> result = createFractions(99);
 		System.out.println(result);
 	}
 
