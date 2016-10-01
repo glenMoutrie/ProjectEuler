@@ -43,7 +43,6 @@ public abstract class Sort {
 		return(unsorted);
 	}
 	
-<<<<<<< Updated upstream
 	private static Integer[] merge(Integer[] A, int p, int q, int r) {
 		
 		// Indexing for the two splits
@@ -57,26 +56,13 @@ public abstract class Sort {
 		
 		// Populate left
 		for(i = 0; i < nOne; i++) {
-=======
-	private static int[] merge(int[] A, int p, int q, int r) {
-		
-		// Indexing for the two splits
-		int nOne = r - q + 1;
-		int nTwo = q - p;
-		
-		// Initiate the two splits
-		int[] right = new int[nOne + 1];
-		int[] left = new int[nTwo + 1];
-		
-		// Populate left
-		for(int i = 0; i < nOne; i++) {
->>>>>>> Stashed changes
+
 			left[i] = A[p + i];
 		}
 			
 		// Populate right
-		for(int j = 0; j < nTwo; j++) {
-			right[j] = A[q + j];
+		for(int j1 = 0; j1 < nTwo; j1++) {
+			right[j1] = A[q + j1];
 		}
 		
 		// Add sentinal cards
@@ -85,23 +71,10 @@ public abstract class Sort {
 		left[nOne] = Integer.MAX_VALUE;
 		right[nTwo] = Integer.MAX_VALUE;
 		
-<<<<<<< Updated upstream
 		i = 0;
 		j = 0;
 		
-		// Now perform the merge sort
-		for (int k = p; k <= r; k++) {
-			if (left[i] <= right[j]) {
-				A[k] = left[i];
-				i++;
-			} else {
-				A[k] = right[j];
-				j++;
-=======
-		int i = 0;
-		int j = 0;
-		
-		int[] result = new int[nOne + nTwo];
+		Integer[] result = new Integer[nOne + nTwo];
 		
 		// Merge left and right into a single array
 		for(int k = p; k <= r; k++) {
@@ -119,35 +92,34 @@ public abstract class Sort {
 		return(result);
 	}
 	
-	public static int[] mergeSort(int[]A, int p, int r) {
-		
-		//{5,2,4,7,1,3,2,6};
-		
-		if (p < r) {
-			
-			// Set up the mid point
-			int q = (int) Math.floor((p + r)/2);
-			System.out.println(q);
-			
-			// Copy the array to the new one (ugly as fuck, but right now I just want an implementation...)
-			System.arraycopy(mergeSort(A, p, q), 0, A, 0, q);
-			for(int i : A ){
-				System.out.println("First Merge Sort complete");
-				System.out.println(i);
->>>>>>> Stashed changes
-			}
-			
-			System.arraycopy(mergeSort(A, q + 1, r), 0, A, q + 1, r);
-			
-			// Merge the two sorted results
-			A = merge(A, p, q, r);
-		} else {
-			System.out.println(A[p] + ", r = " + r);
-		}
-		
-		// Return a copy of the array
-		return(Arrays.copyOfRange(A,p,r + 1));
-	}
+//	public static Integer[] mergeSort(Integer[]A, int p, int r) {
+//		
+//		//{5,2,4,7,1,3,2,6};
+//		
+//		if (p < r) {
+//			
+//			// Set up the mid point
+//			int q = (int) Math.floor((p + r)/2);
+//			System.out.println(q);
+//			
+//			// Copy the array to the new one (ugly as fuck, but right now I just want an implementation...)
+//			System.arraycopy(mergeSort(A, p, q), 0, A, 0, q);
+//			for(int i : A ){
+//				System.out.println("First Merge Sort complete");
+//				System.out.println(i);
+//			}
+//			
+//			System.arraycopy(mergeSort(A, q + 1, r), 0, A, q + 1, r);
+//			
+//			// Merge the two sorted results
+//			A = merge(A, p, q, r);
+//		} else {
+//			System.out.println(A[p] + ", r = " + r);
+//		}
+//		
+//		// Return a copy of the array
+//		return(Arrays.copyOfRange(A,p,r + 1));
+//	}
 	
 	public static Integer[] mergeSort(Integer[] A, int p, int r) {
 		
@@ -197,7 +169,6 @@ public abstract class Sort {
 		System.out.println(sorted);
 		System.out.println(insertionSort(A, false));
 		
-<<<<<<< Updated upstream
 		Integer[] b = {2, 4, 5, 7, 1, 2, 3, 6};
 		
 //		System.out.println(merge(b,0,3,7));
@@ -206,10 +177,6 @@ public abstract class Sort {
 		for(Integer i : result) System.out.println(i);
 		
 		mergeSort(b, 0, 8);
-=======
-		int[] b = {2, 4, 5, 7, 1, 2, 3, 6};
-		
-		int[] result = merge(b,0,4,7);
 		
 		for(int i : result) System.out.println(i);
 		
@@ -220,10 +187,7 @@ public abstract class Sort {
 		int[] check = Arrays.copyOfRange(c, 0, 1);
 		for(int i : check) {System.out.println(i);}
 		
-		int[] sortResult = mergeSort(c, 0 , 7);
 		
-		for(int i : sortResult) {System.out.println(i);}
->>>>>>> Stashed changes
 
 	}
 }
