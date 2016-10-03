@@ -35,10 +35,6 @@ public class Euler71 {
 		
 		/*
 		 * HAHAHA BRUTE FORCE LOL DOESN"T WORK
-		 * 
-		 * 
-		 * Managed to guess it, simply divide the number by 999999, and you get the
-		 * numerator 428570
 		 */
 		boolean hitTarget = false;
 		
