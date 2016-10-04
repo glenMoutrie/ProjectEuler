@@ -1,5 +1,8 @@
 package basicTools.Fraction;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import basicTools.GeneralCalculation;
 
 public class IntegerFraction implements Comparable<IntegerFraction>{
@@ -7,6 +10,10 @@ public class IntegerFraction implements Comparable<IntegerFraction>{
 	private int numerator;
 	private int denominator;
 	private double value;
+	private BigDecimal accValue;
+	
+	private boolean accurate;
+	
 
 	// Constructor
 	public IntegerFraction(int numerator, int denominator) {
@@ -15,9 +22,26 @@ public class IntegerFraction implements Comparable<IntegerFraction>{
 		calculateValue();
 		
 	}
+	
+	public IntegerFraction(int numerator, int denominator, boolean accurate) {
+		this.numerator = numerator;
+		this.denominator = denominator;
+		
+		this.accurate = accurate;
+		if (accurate) this.accValue = BigDecimal.ONE;
+		calculateValue();
+		
+	}
+
 
 	public void calculateValue() {
-		this.value = ((double) this.numerator)/((double) this.denominator);
+		if (this.accurate) {
+			this.accValue = new BigDecimal(Integer.toString(this.numerator))
+					.divide(new BigDecimal(Integer.toString(this.denominator)),10000,RoundingMode.CEILING);
+		} else {
+			this.value = ((double) this.numerator)/((double) this.denominator);
+		}
+		
 	}
 
 	/*
@@ -77,7 +101,11 @@ public class IntegerFraction implements Comparable<IntegerFraction>{
 	public double getValue() {
 		return this.value;
 	}
-
+	
+	public BigDecimal getAccValue() {
+		return this.accValue;
+	}
+	
 	public void print() {
 		System.out.println(this.numerator);
 		System.out.println("-------");

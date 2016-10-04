@@ -1,5 +1,6 @@
 package basicTools;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 
@@ -31,6 +32,19 @@ public class NumberCharacteristics {
 	public static int getSumOfDigits(BigInteger x) {
 		ArrayList<Integer> digits = getDigits(x);
 		return digits.stream().mapToInt(i -> i).sum();
+	}
+	
+	public static ArrayList<Integer> getDecimalValues(BigDecimal x) {
+		
+		ArrayList<Integer> values = new ArrayList<Integer>();
+		
+		String[] digits = x.toString().split(".");
+		digits = digits[1].split("");
+		
+		for (String i : digits) values.add(new Integer(i));
+		
+		return values;
+		
 	}
 	
 	public static boolean isPermutation(Number x, Number y) {

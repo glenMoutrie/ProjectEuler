@@ -302,3 +302,13 @@ Contains: /Users/glenmoutrie/Documents/ProjectEuler/Project Euler Java Program o
 !MESSAGE OK
 !SUBENTRY 2 org.eclipse.core.resources 4 77 2016-09-29 17:13:59.774
 !MESSAGE /Users/glenmoutrie/Documents/ProjectEuler/Project Euler Java Program overlaps the workspace location: /Users/glenmoutrie/Documents/ProjectEuler/Project Euler Java Program
+!SESSION 2016-10-04 15:53:50.435 -----------------------------------------------
+eclipse.buildId=4.6.0.I20160606-1100
+java.version=1.8.0_40
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/glenmoutrie/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data /Users/glenmoutrie/Documents/ProjectEuler/Project Euler Java Program -product org.eclipse.epp.package.java.product -keyring /Users/glenmoutrie/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2016-10-04 15:53:55.388
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

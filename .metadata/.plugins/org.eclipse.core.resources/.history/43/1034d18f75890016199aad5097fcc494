@@ -1,0 +1,50 @@
+package solutions;
+
+import java.math.BigInteger;
+import java.util.ArrayList;
+
+public class Euler56 {
+
+	static class Powers {
+
+		String a;
+		ArrayList<BigInteger> values;
+
+		Powers(int a, int n) {
+
+			this.a = Integer.toString(a);
+			values = new ArrayList<BigInteger>(n);
+
+			BigInteger addition;
+
+			for (int i = 1; i <= n; i++) {
+				addition = new BigInteger(this.a);
+				addition.pow(i);
+				values.add(addition);
+			}
+
+		}
+
+		ArrayList<BigInteger> getValues() {
+			return values;
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		
+		int n = 100;
+		
+		ArrayList<Powers> powers = new ArrayList<Powers>(n);
+		
+		Powers update;
+		
+		for(int i = 1; i <= 100; i++) {
+
+			update = new Powers(i,n);
+			powers.add(update);
+			
+		}
+	}
+
+}

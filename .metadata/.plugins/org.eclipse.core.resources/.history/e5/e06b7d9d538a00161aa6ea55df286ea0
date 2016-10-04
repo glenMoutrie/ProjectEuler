@@ -1,0 +1,5 @@
+package basicTools.Fraction;
+
+public abstract class Fraction {
+
+}
