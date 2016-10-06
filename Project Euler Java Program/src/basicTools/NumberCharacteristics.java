@@ -38,7 +38,7 @@ public class NumberCharacteristics {
 		
 		ArrayList<Integer> values = new ArrayList<Integer>();
 		
-		String[] digits = x.toString().split(".");
+		String[] digits = x.toString().split("\\.");
 		digits = digits[1].split("");
 		
 		for (String i : digits) values.add(new Integer(i));
