@@ -29,6 +29,28 @@ public class NumberCharacteristics {
 		return values;
 	}
 	
+	public static ArrayList<Integer> getDigits(Integer x) {
+		ArrayList<Integer> digits = new ArrayList<Integer>();
+		
+		while(x != 0) {
+			digits.add(Math.floorMod(x, 10));
+			x = x/10;
+		}
+		
+		return digits;
+	}
+	
+	public static ArrayList<Long> getDigits(Long x) {
+		ArrayList<Long> digits = new ArrayList<Long>();
+		
+		while(x != 0) {
+			digits.add(Math.floorMod(x, 10));
+			x = x/10;
+		}
+		
+		return digits;
+	}
+	
 	public static int getSumOfDigits(BigInteger x) {
 		ArrayList<Integer> digits = getDigits(x);
 		return digits.stream().mapToInt(i -> i).sum();
@@ -163,7 +185,8 @@ public class NumberCharacteristics {
 		System.out.println(isBouncy(1248964126));
 
 		System.out.println(getSumOfDigits(new BigInteger("55555")));
-		
+
+		for(Integer i : getDigits(123)) System.out.println(i);
 	}
 	
 	

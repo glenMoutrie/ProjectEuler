@@ -1,0 +1,39 @@
+package solutions;
+
+import java.util.ArrayList;
+
+import basicTools.NumberCharacteristics;
+
+public class Euler92 {
+
+	
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Long> digits;
+		Long seqValue;
+		int total = 0;
+		
+		for (Long i = new Long("1"); i <= 10000000; i++) {
+			
+			seqValue = i;
+			
+			while (seqValue != (long) 1) {
+				digits = NumberCharacteristics.getDigits(seqValue);
+				seqValue = (long) digits.stream().map(x -> Math.pow(x, 2)).mapToDouble(x -> x).sum();
+				if (seqValue == (long) 89) {
+					
+					total++;
+					break;
+				} else if (seqValue == 1) {
+//					System.out.println(i);
+				}
+			}
+			
+			
+		}
+		
+		System.out.println(total);
+	}
+	
+}

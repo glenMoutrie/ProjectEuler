@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;solutions.Euler921&apos; to &apos;Euler92&apos;&#x0A;- Original project: &apos;Project Euler Java Program&apos;&#x0A;- Original element: &apos;solutions.Euler921&apos;&#x0A;- Renamed element: &apos;solutions.Euler92&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Euler921&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;solutions{Euler921.java[Euler921" matchStrategy="1" name="Euler92" qualified="false" references="true" similarDeclarations="false" stamp="1475778585434" textual="false" version="1.0"/>
+</session>

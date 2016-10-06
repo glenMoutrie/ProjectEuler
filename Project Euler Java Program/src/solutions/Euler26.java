@@ -1,9 +1,5 @@
 package solutions;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import basicTools.CycleDetection;
 import basicTools.NumberCharacteristics;
 import basicTools.Fraction.IntegerFraction;
 
@@ -12,42 +8,13 @@ public class Euler26 {
 	public static void main(String[] args) {
 		
 		IntegerFraction frac;
-		ArrayList<Integer> values;
-		CycleDetection cycle;
 		
-		int max = 0;
-		
-		for (int i = 1; i <= 20; i++) {
+		for (int i = 1; i <= 10; i++) {
 			frac = new IntegerFraction(1, i, true);
-			
 			frac.print();
-			System.out.println("\n"+ frac.getAccValue());
-			
-			values = NumberCharacteristics.getDecimalValues(frac.getAccValue());
-			Collections.reverse(values);
-			
-			for(int j = values.size() - 1; j >= 1; j--) {
-				if (values.get(j) == 0) {
-					values.remove(j);
-				} else {
-					break;
-				}
-			}
-			
-			if (values.size() > 2) {
-				cycle = new CycleDetection(values);
-				System.out.println("Cycle length "+ cycle.getLambda());
-				
-				if (cycle.getLambda() > max) max = cycle.getLambda();
-				
-			} else {
-				System.out.println("Cycle length "+ values.size());
-			}
-			
-			
-			
+			NumberCharacteristics.getDigits(frac.getAccValue());
 		}
-		System.out.println("MAX = "+max);
+		
 	}
 	
 	
