@@ -24,10 +24,12 @@ public class Euler92 {
 		
 		
 		
-		for (Long i = new Long("1"); i <= 1e7; i++) {
+		for (Long i = new Long("1"); i <= 100; i++) {
 			
 			thisSeq = new HashSet<>();
 			seqValue = i;
+			
+			System.out.println("Starting with " + i + "\n");
 			
 			while (!knownSuccess.contains(seqValue)) {
 				

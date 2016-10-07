@@ -10,5 +10,10 @@
 <fullyQualifiedTypeName name="basicTools.Fraction.BigIntegerFraction"/>
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="basicTools.Fraction.IntegerFraction"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.lang.Number"/>
 <fullyQualifiedTypeName name="basicTools.NumberCharacteristics"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
 </qualifiedTypeNameHistroy>
