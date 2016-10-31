@@ -19,7 +19,7 @@ public class Matrix {
 	}
 	
 	public Matrix(Double[][] data) {
-		matrix = data;
+		new DenseMatrix = DenseMatrix(data);
 		this.m = data.length;
 		this.n = data[1].length;
 	}
