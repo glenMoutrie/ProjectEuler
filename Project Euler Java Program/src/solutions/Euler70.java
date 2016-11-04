@@ -9,8 +9,8 @@ public class Euler70 {
 		ArrayList<Integer> totient = basicTools.NumberSequence.eulerTotient(10000000);
 		totient.remove(0);
 		
-		double n = 2;
-		double max = 10;
+		Integer n = 2;
+		double min = Double.MAX_VALUE;
 		double current;
 		double currentAnswer = 0;
 		
@@ -20,20 +20,22 @@ public class Euler70 {
 		for (int i : totient) {
 
 			// Calculate current value
-			current = (n)/i;
-//			System.out.println("\r\n " + n + " " + i);
+			current = (n.doubleValue())/i;
+			
+			// Because n.doubleValue() does insane things...
+			n.intValue();
 			
 			
 			// If larger than max add it
-			if (current <= max || n == 87109) {
-				max = current;
+			if (current <= min ) {
+				
 				isPermutation = basicTools.NumberCharacteristics.isPermutation(n, i);
 				
-				if (isPermutation) {
+				if (isPermutation|| n == 87109) {
+					min = current;
 					currentAnswer = n;
 				}
 				
-//				System.out.println(max + " " + n + " " + i + " " + isPermutation);
 			}
 			
 			// Add one more
