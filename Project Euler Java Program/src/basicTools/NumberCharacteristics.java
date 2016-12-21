@@ -3,6 +3,7 @@ package basicTools;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import algorithms.Table;
 
@@ -163,6 +164,31 @@ public class NumberCharacteristics {
 		
 	}
 	
+	// Digits (non zero only)
+	private static final ArrayList<Integer> DIGITS = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5,6,7,8,9)); 
+	
+	// Find if a number is pandigital
+	public static boolean isPandigital(ArrayList<Integer> digits) {
+		
+		// If more or less than 9 digits, it cannot be pandigital
+		if (digits.size() != 9) return false;
+		
+		// Check that all digits appear. Do not need to check for repetitions (will fail if true)
+		for (Integer i : DIGITS) {
+			if (!digits.contains(i)) {
+				return false;
+			}
+		}
+		
+		// If passed all checks, then true.
+		return true;
+	}
+	
+	// Wrapper for integers.
+	public static boolean isPandigital(int x) {
+		return isPandigital(getDigits(x));
+	}
+	
 	public static void main(String args[]) {
 		long test = 12345;
 		System.out.println(reverseNumber(test));
@@ -187,6 +213,12 @@ public class NumberCharacteristics {
 		System.out.println(getSumOfDigits(new BigInteger("55555")));
 
 		for(Integer i : getDigits(123)) System.out.println(i);
+		
+		System.out.println(isPandigital(123456789));
+		System.out.println(isPandigital(12345689));
+		System.out.println(isPandigital(789123456));
+		System.out.println(isPandigital(1234567891));
+		System.out.println(isPandigital(987654321));
 	}
 	
 	

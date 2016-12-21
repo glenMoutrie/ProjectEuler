@@ -1,0 +1,46 @@
+package solutions;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import basicTools.NumberCharacteristics;
+
+public class Euler32 {
+
+	private static ArrayList<Integer> getIdentity(Integer multiplicand, Integer multiplier, Integer result) {
+		
+		ArrayList<Integer> identity = new ArrayList<Integer>();
+		
+		identity.addAll(NumberCharacteristics.getDigits(multiplicand));
+		identity.addAll(NumberCharacteristics.getDigits(multiplier));
+		identity.addAll(NumberCharacteristics.getDigits(result));
+		
+		return identity;
+	}
+	
+	public static void main(String args[]) {
+		int multiple;
+		HashSet<Integer> pandigitalProducts = new HashSet<Integer>();
+		
+		System.out.println(NumberCharacteristics.isPandigital(getIdentity(39,186,7254)));
+		
+		for (int i = 0; i <= 1000; i++) {
+			for (int j = 0; j <= 10000; j++) {
+				
+				multiple = i*j;
+				if(NumberCharacteristics.isPandigital(getIdentity(i, j, multiple))) {
+					pandigitalProducts.add(multiple);
+				}
+				
+			}
+		}
+		
+		int total = 0;
+		for (Integer panProd : pandigitalProducts) {
+			total += panProd;
+		}
+		
+		System.out.println(total);
+	}
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;multiple&apos; in &apos;solutions.Euler32.main(...)&apos; to &apos;product&apos;&#x0A;- Original project: &apos;Project Euler Java Program&apos;&#x0A;- Original element: &apos;solutions.Euler32.main(String[]).multiple&apos;&#x0A;- Renamed element: &apos;multiple&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;multiple&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;solutions{Euler32.java[Euler32~main~\[QString;@multiple!774!786!778!785!I!0!false" name="product" references="true" stamp="1482341690824" version="1.0"/>
+</session>

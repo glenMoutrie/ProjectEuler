@@ -1,0 +1,38 @@
+package solutions;
+
+import java.util.ArrayList;
+
+import basicTools.NumberCharacteristics;
+
+public class Euler38 {
+	
+	public static void main(String args[]) {
+		
+		boolean isPandigital;
+		ArrayList<Integer> digits;
+		int multiple;
+		int answer = 0;
+		
+//		for (int i = 1; i < 1e8; i++) {
+		for (int i = 1; i < 200; i++) {
+			digits = new ArrayList<Integer>(0);
+			multiple = 0;
+			
+			while(digits.size() < 9) {
+				digits.addAll(NumberCharacteristics.getDigits(i*++multiple));
+			}
+			
+			if (digits.size() == 9) {
+				if (NumberCharacteristics.isPandigital(digits)) {
+					System.out.println(i);
+					answer = i > answer ? i : answer;
+				}
+			}
+			
+			
+		}
+		
+		System.out.println(answer);
+	}
+
+}

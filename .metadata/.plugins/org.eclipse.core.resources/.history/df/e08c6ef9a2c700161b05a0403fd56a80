@@ -1,0 +1,46 @@
+package solutions;
+
+import java.util.ArrayList;
+
+import org.jblas.benchmark.Main;
+
+import basicTools.NumberCharacteristics;
+
+public class Euler32 {
+
+	private static ArrayList<Integer> getIdentity(Integer multiplicand, Integer multiplier, Integer result) {
+		
+		ArrayList<Integer> identity = new ArrayList<Integer>();
+		
+		identity.addAll(NumberCharacteristics.getDigits(multiplicand));
+		identity.addAll(NumberCharacteristics.getDigits(multiplier));
+		identity.addAll(NumberCharacteristics.getDigits(result));
+		
+		return identity;
+	}
+	
+	public static void main(String args[]) {
+		int multiple;
+		int total = 0;
+		
+		System.out.println(NumberCharacteristics.isPandigital(getIdentity(39,186,7254)));
+		
+		for (int i = 10; i <= 99; i++) {
+			for (int j = 100; j <= 999; j++) {
+				
+				multiple = i*j;
+				if(NumberCharacteristics.isPandigital(getIdentity(i, j, multiple))) {
+					System.out.println(multiple);
+					total += multiple;
+				}
+				if (i == 39 && j == 186) {
+					System.out.println(i + " " + j + " " + multiple);
+				}
+				
+			}
+		}
+		
+		System.out.println(total);
+	}
+	
+}
