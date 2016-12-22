@@ -3,6 +3,8 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import basicTools.NumberCharacteristics;
+
 public class Table {
 	
 	HashMap<String, Integer> histogram = new HashMap<String, Integer>();
@@ -95,6 +97,8 @@ public class Table {
 		System.out.println(test.areEqual(testTrue));
 		System.out.println(test.areEqual(testFalse));
 		
+		Table numOne = new Table(NumberCharacteristics.getDigits(41063625));
+		System.out.println();
 		
 	}
 	

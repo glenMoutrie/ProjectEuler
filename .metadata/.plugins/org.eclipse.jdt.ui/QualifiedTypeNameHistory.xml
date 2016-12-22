@@ -11,9 +11,12 @@
 <fullyQualifiedTypeName name="java.math.BigDecimal"/>
 <fullyQualifiedTypeName name="basicTools.Fraction.IntegerFraction"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="basicTools.NumberCharacteristics"/>
 <fullyQualifiedTypeName name="java.lang.Long"/>
-<fullyQualifiedTypeName name="java.util.HashSet"/>
 <fullyQualifiedTypeName name="java.lang.Number"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="org.jblas.benchmark.Main"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.synth.SynthSeparatorUI"/>
+<fullyQualifiedTypeName name="basicTools.NumberCharacteristics"/>
 </qualifiedTypeNameHistroy>
