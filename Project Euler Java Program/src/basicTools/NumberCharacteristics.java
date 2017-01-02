@@ -30,6 +30,18 @@ public class NumberCharacteristics {
 		return values;
 	}
 	
+	public static ArrayList<Integer> getDigits(BigDecimal x) {
+		
+		ArrayList<Integer> values = new ArrayList<Integer>();
+		
+		while(!x.equals(BigDecimal.ZERO)) {
+			values.add(x.intValue() % 10);
+			x = x.divide(BigDecimal.TEN);
+		}
+		
+		return values;
+	}
+	
 	public static ArrayList<Integer> getDigits(Integer x) {
 		ArrayList<Integer> digits = new ArrayList<Integer>();
 		

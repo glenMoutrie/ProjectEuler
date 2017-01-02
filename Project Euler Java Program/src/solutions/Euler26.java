@@ -12,7 +12,7 @@ public class Euler26 {
 		for (int i = 1; i <= 10; i++) {
 			frac = new IntegerFraction(1, i, true);
 			frac.print();
-			NumberCharacteristics.getDigits(frac.getAccValue());
+			System.out.println(NumberCharacteristics.getDigits(frac.getAccValue()));
 		}
 		
 	}

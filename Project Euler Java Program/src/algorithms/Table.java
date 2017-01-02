@@ -97,8 +97,10 @@ public class Table {
 		System.out.println(test.areEqual(testTrue));
 		System.out.println(test.areEqual(testFalse));
 		
-		Table numOne = new Table(NumberCharacteristics.getDigits(41063625));
-		System.out.println();
+		ArrayList<String> digits = new ArrayList<String>(); 
+		for (Integer i : NumberCharacteristics.getDigits(41063625)) digits.add(i.toString());
+		Table numOne = new Table(digits);
+		numOne.printTable();
 		
 	}
 	
