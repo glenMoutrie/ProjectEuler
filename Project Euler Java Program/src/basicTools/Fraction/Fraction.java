@@ -3,7 +3,7 @@ package basicTools.Fraction;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Fraction<N> {
+public abstract class Fraction<N> {
 
 
 	N numerator;
@@ -18,52 +18,19 @@ public class Fraction<N> {
 		calculateValue();
 		
 	}
-	
-	
-	public void calculateValue() {
-		this.value = this.numerator.divide(this.denominator).doubleValue();
-	}
 
 
 	/*
 	 * Basic Numerical Methods
 	 */
 	
-	public BigIntegerFraction multiply(BigIntegerFraction x) {
-		BigIntegerFraction update = new BigIntegerFraction(this.numerator.multiply(x.getNumerator()),
-				this.denominator.multiply(x.getDenominator()));
-		
-		update.calculateValue();
-		
-		return(update);
-		
-	}
-
-	public BigIntegerFraction add(BigIntegerFraction x) {
-		
-		BigInteger denominator = this.denominator.multiply(x.getDenominator());
-		BigInteger numerator = this.denominator.multiply(x.getNumerator());
-		numerator = numerator.add(x.getDenominator().multiply(this.numerator));
-		
-		return new BigIntegerFraction(numerator, denominator);
-		
-	}
-
-	public BigIntegerFraction add(int x) {
-		
-		return this.add(new BigIntegerFraction(x, 1));
-		
-	}
+	public abstract void calculateValue();
 	
-	public void invert() {
-		
-		BigInteger newDenominator = this.numerator;
-		this.numerator = this.denominator;
-		this.denominator = newDenominator;
-		
-		calculateValue();
-		
-	}
+	public abstract N multiply(N x);
+
+	public abstract N add(N x);
+
+	public abstract void invert();
 
 	public void print() {
 		System.out.println(this.numerator);
@@ -72,16 +39,20 @@ public class Fraction<N> {
 		
 	}
 	
-	public BigInteger getNumerator() {
+	public N getNumerator() {
 		return numerator;
 	}
 	
-	public BigInteger getDenominator() {
+	public N getDenominator() {
 		return denominator;
 	}
 	
 	public double getValue() {
 		return value;
+	}
+	
+	public BigDecimal getAccurateValue() {
+		return accurateValue;
 	}
 
 	

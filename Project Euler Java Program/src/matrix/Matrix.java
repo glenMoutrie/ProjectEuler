@@ -1,11 +1,13 @@
 package matrix;
 
+import org.jblas.DoubleMatrix;
+
 import throwables.TheoreticalError;
 
 public class Matrix {
 	
 	// Class fields
-	Double[][] matrix;
+	DoubleMatrix matrix;
 	int m;
 	int n;
 	int rowID = 1;
@@ -13,31 +15,43 @@ public class Matrix {
 	
 	// Constructors
 	public Matrix(int m, int n) {
-		matrix = new Double[m][n];
+		this.matrix = new DoubleMatrix(m, n);
 		this.m = m;
 		this.n = n;
 	}
 	
 	public Matrix(Double[][] data) {
-		new DenseMatrix = DenseMatrix(data);
 		this.m = data.length;
 		this.n = data[1].length;
+		
+		// Create the double matrix
+		this.matrix = new DoubleMatrix(m, n);
+		
+		// Populate the matrix
+		for (int i = 0; i < data.length; i ++) {
+			for (int j = 0; j < data[i].length; j++) {
+				this.matrix.put(i, j, data[i][j]);
+			}
+			
+		}
 	}
 	
 	// Methods
-	public Matrix add(Matrix o) {
+	public Matrix addWith(Matrix o) {
 		
-		if (this.m != o.getNumCols()) throw new TheoreticalError("The columns do not match");
-		if (this.n != o.getNumRows()) throw new TheoreticalError("The rows do not match");
-		
-		for(int i = 0; i < this.n; i++) {
-			for (int j = 0; i < this.m; j++) {
-				this.matrix[i][j] = this.matrix[i][j] + o.getMatrixData()[i][j];
-			}
-		}
+		this.matrix = add(o).getMatrixData();
 		
 		return this;
 		
+	}
+	
+	public Matrix add(Matrix o) {
+		if (this.m != o.getNumCols()) throw new TheoreticalError("The columns do not match");
+		if (this.n != o.getNumRows()) throw new TheoreticalError("The rows do not match");
+		
+		this.matrix.add(o.getMatrixData());
+		
+		return this;
 	}
 	
 	public void transpose() {
@@ -61,7 +75,7 @@ public class Matrix {
 		
 	}
 	
-	private Double[][] getMatrixData() {
+	private DoubleMatrix getMatrixData() {
 		return this.matrix;
 	}
 	
