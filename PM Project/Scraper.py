@@ -82,18 +82,15 @@ def scrapePM(url):
 
 pmTopics = {}
 
-for pm in targetURLs.keys()[:2]:
+for pm in targetURLs.keys():
     pmLinks = scrapePM(targetURLs[pm])
     pmTopics[pm] = Counter(pmLinks)
 
 keyWords = reduce(lambda a,b: a | b, pmTopics.values()).most_common(1000)
 
-print pmTopics[targetURLs.keys()[0]]["fakeName"]
-print keyWords[0]
-
 data = []
 
-for pm in targetURLs.keys()[:2]:
+for pm in targetURLs.keys():
 
     counts = []
     for i in keyWords:
@@ -104,6 +101,8 @@ for pm in targetURLs.keys()[:2]:
 
 data = pandas.DataFrame.from_items(data, orient = "index", columns = keyWords)
 
-fit = KMeans(n_clusters = 4).fit(data)
+fit = KMeans().fit(data)
+
+print fit
 
 # for i in scrapePM(targetURLs["David Cameron"]): print i
