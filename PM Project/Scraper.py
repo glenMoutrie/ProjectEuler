@@ -108,9 +108,9 @@ from sklearn.decomposition import PCA
 
 data = pandas.read_csv("~/Documents/ProjectEuler/PM Project/links.csv", names = "array-like", header = 0)
 
-X_pca = PCA(n_components= 3, whiten = True, svd_solver = "full").fit_transform(data)
+X_pca = PCA(n_components= 10, whiten = True, svd_solver = "full").fit_transform(data)
 
-fit = KMeans(n_clusters = 3, init = "k-means++", n_init = 10, verbose = 1).fit(X_pca).predict(X_pca)
+fit = KMeans(n_clusters = 10, init = "k-means++", n_init = 10, verbose = 1).fit(X_pca).predict(X_pca)
 
 pm = []
 for i in range(0,54,1): pm.append(data.iloc[i].name[0])
