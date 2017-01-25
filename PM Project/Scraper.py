@@ -108,7 +108,7 @@ for pm in targetURLs.keys():
 
 
 data = pandas.DataFrame.from_items(data, orient = "index", columns = keyWords)
-meta = pandas.DataFrame.from_items(numpy.array(data))
+meta = pandas.DataFrame.from_records(meta)
 
 data.to_csv("~/Documents/ProjectEuler/PM Project/links.csv")
 meta.to_csv("~/Documents/ProjectEuler/PM Project/meta.csv")
