@@ -90,7 +90,7 @@ cluster.meta <- split(cluster.meta, cluster.meta$name)
 cluster.meta <- lapply(cluster.meta, as.list)
 
 for (i in as.character(1:14)) {
-	data <- as.list(split(output[[i]][,c("x","y","name"), with = F],1:nrow(output[[i]])))
+	data <- as.list(split(output[[i]][,c("x","y","name", "Names"), with = F],1:nrow(output[[i]])))
 	names(data) <- c()
 	cluster.meta[[i]]$data <- data
 }

@@ -3,15 +3,46 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<style>
+td {
+	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
+	sans-serif;
+	color: #6D929B;
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	letter-spacing: 2px;
+	text-align: left;
+	padding: 6px 6px 6px 12px;
+	background: #CAE8EA;
+}
 
+#content { 
+    width: 1000px;
+    margin: 0 auto;
+}
+#container    {
+    width: 600px;
+    height: 400px;
+    float: left;
+}
+
+#explaination  {
+    width: 200px;
+    background: #ffffff;
+    height: 400px;
+     overflow: scroll;
+    margin-left: 200px;
+}
+
+</style>
 <script>
 
 $(document).ready(function() {
     var options = {
         chart: {
         	renderTo: 'container',
-            type: 'scatter',
-            zoomType: 'xy'
+            type: 'scatter'
         },
         title: {
             text: 'Prime Ministers Clustered by links'
@@ -38,13 +69,11 @@ $(document).ready(function() {
         },
         legend: {
             layout: 'vertical',
-            align: 'left',
+            align: 'right',
             verticalAlign: 'top',
-            x: 100,
+            x: 0,
             y: 70,
-            floating: false,
-            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-            borderWidth: 1
+            floating: false
         },
         plotOptions: {
             scatter: {
@@ -81,19 +110,75 @@ $(document).ready(function() {
 
         chart.redraw()
 
+        // The first series appears here for no good reason.
+        chart.series[0].remove(true)
+
+        var explain = "<table>";
+
+        var content = "<tr><td><b>Cluster<b></td><td><b>Prime Ministers<b></td></tr><tr><td colspan = '2'>(Click on row to highlight)</td></tr>";
+
+        console.log(json)
+
         for (i = 0; i < json.length; i++) {
-        	json[i]["name"] = "Cluster " + json[i]["name"]
-        	if (json[i]["name"] != null) chart.addSeries(json[i])
+        	//code before the pause
+
+        	// Rename the cluster
+        	json[i]["name"] = "Cluster " + (i + 1)
+
+        	// Add it to the series
+        	chart.addSeries(json[i])
+
+        	// Add the cluster name
+        	content += "<tr class = 'cluster' data-href = '" + i + "'><td>" + json[i]["name"] + "</td><td><ul>"
+
+
+
+        	for (j = 0; j < json[i].data.length; j ++) {
+        		content += "<li>" + json[i]["data"][j]["name"] + "</li>"
+        	}
+        	
+        	content += "</ul></td><tr>"
+
         }
 
-    	console.log(json)
+        $('#explaination').append(content);
+
+        $(".cluster").click(function() {
+
+        	chart.redraw()
+
+        	var ref = $(this).data("href");
+
+        	for (i = 0; i < json.length; i++) {
+        		if (i != ref) {
+        			chart.series[i].hide()
+        		} else {
+        			chart.series[i].show()
+        		}
+        		
+        	}
+        
+    });
+
+        $('#checkAll').click(function(){
+    for(i=0; i < chart.series.length; i++) {
+        if(chart.series[i].visible == false){
+            chart.series[i].show();
+             }
+    }
+});
+
+    	
 	});
 })
 
 </script>
 </head>
 
-
+<div id = "content">
 <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+<div id="explaination" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+<button id="checkAll"style="width:120px;">Show all clusters</button>
+</div>
 
 </html>
