@@ -151,13 +151,27 @@ $(document).ready(function() {
 
         	chart.redraw()
 
+        	$(this).css('background: #FFFFFF')
+
         	var ref = $(this).data("href");
 
         	for (i = 0; i < json.length; i++) {
         		if (i != ref) {
-        			Highcharts.each(chart.series[i].points, function (point) {point.select(true)}, console.log(point));
+
+        			$(".cluster").find("[data-href='" + i + "']").each(function () {
+        				$(this).css('background: #FFFFFF')
+        			})
+
+        			Highcharts.each(chart.series[i].points, function (point) {point.select(false, true); console.log(point)});
+
         		} else {
-        			Highcharts.each(chart.series[i].points, function (point) {point.select(false)});
+
+        			$(".cluster").find("[data-href='" + i + "']").each(function () {
+        				$(this).css('background: #FFFFFF')
+        			})
+        			if(chart.series[i].visible == false) chart.series[i].show();
+
+        			Highcharts.each(chart.series[i].points, function (point) {point.select(true, true)});
         		}
         		
         	}
@@ -174,6 +188,14 @@ $(document).ready(function() {
     }
 });
 
+$('#uncheckAll').click(function(){
+    for(i=0; i < chart.series.length; i++) {
+        if(chart.series[i].visible == true){
+            chart.series[i].hide();
+             }
+    }
+});
+
     	
 	});
 })
@@ -186,6 +208,7 @@ $(document).ready(function() {
 <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 <div id="explaination" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
 <button id="checkAll"style="width:120px;">Show all clusters</button>
+<button id="uncheckAll"style="width:120px;">Hide all clusters</button>
 </div>
 
 </html>
