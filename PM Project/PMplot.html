@@ -37,7 +37,6 @@ td {
 
 </style>
 <script>
-
 $(document).ready(function() {
     var options = {
         chart: {
@@ -52,11 +51,13 @@ $(document).ready(function() {
         },
         tooltip: {
         	useHTML: true
+
         },
         xAxis: {
             title: {
                 enabled: true,
                 text: 'Dimension 1'
+
             },
             startOnTick: true,
             endOnTick: true,
@@ -65,6 +66,7 @@ $(document).ready(function() {
         yAxis: {
             title: {
                 text: 'Dimension 2'
+
             }
         },
         legend: {
@@ -79,6 +81,7 @@ $(document).ready(function() {
             scatter: {
                 marker: {
                     radius: 3,
+
                     states: {
                         hover: {
                             enabled: true,
@@ -95,6 +98,7 @@ $(document).ready(function() {
                 },
                 tooltip: {
                     headerFormat: '<b>{series.name}</b><br>',
+
                     pointFormat: '{point.name} Dimension 1: {point.x}, Dimension 2: {point.y}'
                 }
             }
@@ -151,14 +155,16 @@ $(document).ready(function() {
 
         	for (i = 0; i < json.length; i++) {
         		if (i != ref) {
-        			chart.series[i].hide()
+        			Highcharts.each(chart.series[i].points, function (point) {point.select(true)}, console.log(point));
         		} else {
-        			chart.series[i].show()
+        			Highcharts.each(chart.series[i].points, function (point) {point.select(false)});
         		}
         		
         	}
         
     });
+
+
 
         $('#checkAll').click(function(){
     for(i=0; i < chart.series.length; i++) {
@@ -171,6 +177,7 @@ $(document).ready(function() {
     	
 	});
 })
+
 
 </script>
 </head>
