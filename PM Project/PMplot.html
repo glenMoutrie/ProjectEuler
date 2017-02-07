@@ -14,6 +14,10 @@ td {
 	letter-spacing: 2px;
 	text-align: left;
 	padding: 6px 6px 6px 12px;
+	
+}
+
+tr {
 	background: #CAE8EA;
 }
 
@@ -34,6 +38,8 @@ td {
      overflow: scroll;
     margin-left: 200px;
 }
+
+.highlight { background: red; }
 
 </style>
 <script>
@@ -158,9 +164,9 @@ $(document).ready(function() {
         	for (i = 0; i < json.length; i++) {
         		if (i != ref) {
 
-        			$(".cluster").find("[data-href='" + i + "']").each(function () {
-        				$(this).css('background: #FFFFFF')
-        			})
+        			// $(".cluster").find("[data-href='" + i + "']").each(function () {
+        			// 	$(this).css('background: #FFFFFF')
+        			// })
 
         			Highcharts.each(chart.series[i].points, function (point) {point.select(false, true); console.log(point)});
 
@@ -175,6 +181,13 @@ $(document).ready(function() {
         		}
         		
         	}
+
+        	$("#explaination tr").click(function() {
+    var selected = $(this).hasClass("highlight");
+    $("#data tr").removeClass("highlight");
+    if(!selected)
+            $(this).addClass("highlight");
+});
         
     });
 
