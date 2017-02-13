@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Newton Raphson estimation\n#'\n#' Estimates a value given its location, function and first derivative.\n#'\n#' Allows the accuracy to be specified along with max iterations.\n#'\n#' Used in Euler 80\n#'\n#' @param x0 Starting value\n#' @param f Function\n#' @param fPrime First derivate\n#' @param tolerance Tolerance (defaults to 10^-7)\n#' @param epsilon Minimum step size\n#' @param max.iterations Max iterator\n#'\n#' @return Estimated value\n#' @export\n#'\n#' @examples\n#' sapply(1:10,function (i) {newtonRaphson(f = function (x){x^2 - i},\n#' fPrime = function(x){2*x},\n#' max.iterations = 100,\n#' tolerance = 10^(-100))})\nnewtonRaphson <- function(x0 = 1, f, fPrime, tolerance = 10^(-7), epsilon = 10^(-14),\n\t\t\t\t\t\t\t\t\t\t\t\t\tmax.iterations = 20){\n\tsolution.found <- F\n\n\tfor(i in 1:max.iterations) {\n\t\ty <- f(x0)\n\t\ty.prime <- fPrime(x0)\n\n\t\t# Ensure you don't divide by too small of a number\n\t\tif(abs(y.prime) < epsilon) {\n\t\t\t# Denominator is too small\n\t\t\tbreak\n\t\t}\n\n\t\t# Do newton's computation\n\t\tx1 <- x0 - (y/y.prime)\n\n\t\t# If the result is within the desired tolerance\n\t\tif (abs(x1 - x0) <= tolerance*abs(x1)){\n\t\t\tsolution.found <- T\n\t\t\tbreak\n\t\t}\n\n\t\tx0 <- x1\n\t}\n\n\tif(solution.found) {\n\t\tmessage(\"Succesful estimation\")\n\t} else {\n\t\tmessage(\"Sucks to be you. No convergence.\")\n\t}\n\n\treturn(x0)\n}\n",
+    "created" : 1487006956316.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "419995156",
+    "id" : "A3E80CAE",
+    "lastKnownWriteTime" : 1487007362,
+    "last_content_update" : 1487007362173,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/GradientDescent.R",
+    "project_path" : "R/GradientDescent.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

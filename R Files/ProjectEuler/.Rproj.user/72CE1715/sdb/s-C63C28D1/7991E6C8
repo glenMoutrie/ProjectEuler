@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Checks to see if a value in the unit interval\n#'\n#' If a value between 0 and 1 inclusive this will return a true booleon\n#'\n#' @param x A numeric value to check\n#'\n#' @return Boolean value\n#' @export\nunitValue <- function(x) {\n\t0 <= x && x <= 1\n}\n\n#' Splits a number into a string of digits\n#'\n#' @param number A number to convert to digits\n#'\n#' @return\n#' @export\n#'\n#' @examples\nstringDigits <- function(number){\n\tunlist(strsplit(as.character(number),\"\"))\n}\n\n#' Get numerical digits of a number through strings\n#'\n#' This converts the number to a string, splitting the string then converting back to a number\n#'\n#' @param number Number to get numerical digits of\n#'\n#' @return Named array of digits\n#' @export\n#'\n#' @examples\n#' getDigitsStrSplit(123)\ngetDigitsStrSplit <- function(number) {\n\tsapply(stringDigits(number), as.numeric)\n}\n\n#' Compare two numbers digits\n#'\n#' If two numbers have the same digits this function will return a true statement\n#'\n#' Used in Euler 52\n#'\n#' @param first.number First numeric to compare\n#' @param second.number Second numeric to compare\n#'\n#' @return Boolean\n#' @export\n#'\n#' @examples\ndigitMatch <- function(first.number, second.number){\n\tall(stringDigits(first.number) %in% stringDigits(second.number)) && all(stringDigits(second.number) %in% stringDigits(first.number))\n}\n",
+    "created" : 1487006145799.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1839287895",
+    "id" : "7991E6C8",
+    "lastKnownWriteTime" : 1487009124,
+    "last_content_update" : 1487009124742,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/BasicUtilities.R",
+    "project_path" : "R/BasicUtilities.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

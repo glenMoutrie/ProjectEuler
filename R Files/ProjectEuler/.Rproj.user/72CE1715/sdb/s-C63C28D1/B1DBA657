@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Estimate a triangular number\n#'\n#' @param n Which traingular number\n#'\n#' @return Triangular number\n#' @export\n#'\n#' @examples\n#' getTriangle(10)\ngetTriangle <- function(n) {\n\tn*(n + 1)/2\n}\n\n#' Estimate a pentagonal number\n#'\n#' @param n Which pentagonal number\n#'\n#' @return Pentagonal number\n#' @export\n#'\n#' @examples\n#' getPentagonal(10)\ngetPentagonal <- function(n) {\n\tn*(3*n-1)/2\n}\n\n#' Estimate a hexagonal number\n#'\n#' @param n Which hexagonal number\n#'\n#' @return Hexagonal number\n#' @export\n#'\n#' @examples\n#' getHexagonal(10)\ngetHexagonal <- function(n) {\n\tn*(2*n-1)\n}\n",
+    "created" : 1487005620195.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "516176479",
+    "id" : "B1DBA657",
+    "lastKnownWriteTime" : 1487005633,
+    "last_content_update" : 1487005633887,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Sequences.R",
+    "project_path" : "R/Sequences.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
