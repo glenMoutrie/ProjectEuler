@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "max <- 987654321\n\ndigits <- function(x) {\n\trem <- x\n\ttotal <- 0\n\twhile(rem >= 1) {\n\t\trem <- rem/10\n\t\ttotal <- total + 1\n\t}\n\ttotal\n}\n\nisPalindrome <- function(x) {\n\tdigits <- as.numeric(unlist(strsplit(as.character(x),\"\")))\n\tn <- length(digits)\n\t\n\tfor (i in 1:n) {\n\t\tif(!i %in% digits) return(F)\n\t}\n\t\n\treturn(T)\n}\n\nfound <- F\n\nwhile(!found) {\n\tmax <- previousPrime(max)\n\tfound <- isPalindrome(max)\n}\n\n\nprint(found)\n",
+    "created" : 1487009841911.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3829532534",
+    "id" : "4AC98F3A",
+    "lastKnownWriteTime" : 1482344929,
+    "last_content_update" : 1482344929,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Euler41V2.R",
+    "project_path" : "R/Euler41V2.R",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

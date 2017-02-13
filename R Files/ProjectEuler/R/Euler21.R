@@ -22,4 +22,4 @@ for(x in seq_along(sum.all.under)) {
   }
 }
 
-sum(seq_along(sum.all.under)[amicable.number])}
+sum(seq_along(sum.all.under)[amicable.number])
