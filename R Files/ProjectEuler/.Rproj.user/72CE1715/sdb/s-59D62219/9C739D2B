@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Euler 49\n#'\n#' Finds the largest pandigital prime.\n#'\n#' @param max Largest pandigital to consider.\n#' @param verbose If a message is printed on the search\n#'\n#' @return\n#' @export\neuler41 <- function(max = 7654321, verbose = F) {\n\n\tfound <- F\n\n\twhile(!found) {\n\n\t\t# Go to next pandigital\n\t\tmax <- bindDigits(permutate(getDigits(max), \"DOWN\"))\n\n\t\t# Check if it is prime\n\t\tfound <- isPrime(max)\n\n\t\t# Message\n\t\tif (verbose) cat(\"Max: \", max, \", Found: \", found, \"\\n\")\n\t}\n\n\t# Return largest\n\tmax\n}\n\n\n",
+    "created" : 1487174685442.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1324356184",
+    "id" : "9C739D2B",
+    "lastKnownWriteTime" : 1487174860,
+    "last_content_update" : 1487174860996,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Euler41.R",
+    "project_path" : "R/Euler41.R",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

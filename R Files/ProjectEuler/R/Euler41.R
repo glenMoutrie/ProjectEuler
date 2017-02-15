@@ -1,13 +1,30 @@
-# library(numbers)
-pandigital.numbers <- matrix(NA,nrow = sum(factorial(1:9)),ncol = 9)
-index.number <- c()
-# primes <- isPrime(1:987654321)
-previous.factorial <- 1
-pandigital.numbers[1,1] <- 1
+#' Euler 49
+#'
+#' Finds the largest pandigital prime.
+#'
+#' @param max Largest pandigital to consider.
+#' @param verbose If a message is printed on the search
+#'
+#' @return
+#' @export
+euler41 <- function(max = 7654321, verbose = F) {
 
-for(i in 2:9) {
-  range <- 1:factorial(i)+sum(factorial(1:(i-1)))
+	found <- F
 
-  i[]
+	while(!found) {
 
+		# Go to next pandigital
+		max <- bindDigits(permutate(getDigits(max), "DOWN"))
+
+		# Check if it is prime
+		found <- isPrime(max)
+
+		# Message
+		if (verbose) cat("Max: ", max, ", Found: ", found, "\n")
+	}
+
+	# Return largest
+	max
 }
+
+

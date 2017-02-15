@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Euler 22\n#'\n#' Solves the names scores problem given a names text file\n#'\n#' @param src Location of the text file, comma deliminated.\n#'\n#' @return\n#' @export\n#'\n#' @examples\neuler22 <- function(src = \"~/Documents/Data/p022_names.txt\") {\n\t# Import data (actually comes in as column names)\n\tx <- fread(src)\n\tx <- names(x)\n\n\t# Create letter scores\n\tletter.scores <- 1:length(LETTERS)\n\tnames(letter.scores) <- LETTERS\n\n\t# Apply letter scores\n\tx <- sapply(x,function(y){strsplit(y,split = \"\")})\n\tx <- lapply(x,function (y) {sum(letter.scores[y])})\n\n\t# Score by the names order\n\torder.score <- 1:length(x)\n\tnames(order.score) <- sort(names(x))\n\n\t# Multiply and find the maximum\n\tresults <- sapply(names(x),function (y) {x[[y]]*order.score[y]})\n\n\tsum(results)\n}\n",
+    "created" : 1487175886817.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3662612039",
+    "id" : "482650E5",
+    "lastKnownWriteTime" : 1487176041,
+    "last_content_update" : 1487176041003,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Euler22.R",
+    "project_path" : "R/Euler22.R",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
