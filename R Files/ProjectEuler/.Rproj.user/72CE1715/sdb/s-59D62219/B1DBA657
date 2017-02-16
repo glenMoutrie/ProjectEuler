@@ -1,14 +1,14 @@
 {
     "collab_server" : "",
-    "contents" : "#' Estimate a triangular number\n#'\n#' @param n Which traingular number\n#'\n#' @return Triangular number\n#' @export\n#'\n#' @examples\n#' getTriangle(10)\ngetTriangle <- function(n) {\n\tn*(n + 1)/2\n}\n\n#' Estimate a pentagonal number\n#'\n#' @param n Which pentagonal number\n#'\n#' @return Pentagonal number\n#' @export\n#'\n#' @examples\n#' getPentagonal(10)\ngetPentagonal <- function(n) {\n\tn*(3*n-1)/2\n}\n\n#' Estimate a hexagonal number\n#'\n#' @param n Which hexagonal number\n#'\n#' @return Hexagonal number\n#' @export\n#'\n#' @examples\n#' getHexagonal(10)\ngetHexagonal <- function(n) {\n\tn*(2*n-1)\n}\n",
+    "contents" : "#' Estimate a triangular number\n#'\n#' @param n Which traingular number\n#'\n#' @return Triangular number\n#' @export\n#'\n#' @examples\n#' getTriangle(10)\ngetTriangle <- function(n) {\n\tn*(n + 1)/2\n}\n\n#' Estimate a pentagonal number\n#'\n#' @param n Which pentagonal number\n#'\n#' @return Pentagonal number\n#' @export\n#'\n#' @examples\n#' getPentagonal(10)\ngetPentagonal <- function(n) {\n\tn*(3*n-1)/2\n}\n\n#' Estimate a hexagonal number\n#'\n#' @param n Which hexagonal number\n#'\n#' @return Hexagonal number\n#' @export\n#'\n#' @examples\n#' getHexagonal(10)\ngetHexagonal <- function(n) {\n\tn*(2*n-1)\n}\n\n#' Fibbonaci Sequence\n#'\n#' Generates fibbonci numbers up to a certain given value\n#'\n#' @param highest.val Highest value\n#'\n#' @return\n#' @export\n#'\n#' @examples\n#' fibb(13)\nfibb <- function(highest.val) {\n\toutput <- 1:2\n\tfinal.term <- tail(output,1)\n\n\twhile(final.term < highest.val) {\n\t\tnext.index <- length(output)\n\t\toutput[next.index+1] <- sum(output[next.index-1],output[next.index])\n\t\tfinal.term <- tail(output,1)\n\t}\n\n\toutput\n\n}\n",
     "created" : 1487005620195.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "516176479",
+    "hash" : "1231064427",
     "id" : "B1DBA657",
-    "lastKnownWriteTime" : 1487005633,
-    "last_content_update" : 1487005633887,
+    "lastKnownWriteTime" : 1487256399,
+    "last_content_update" : 1487256399940,
     "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Sequences.R",
     "project_path" : "R/Sequences.R",
     "properties" : {

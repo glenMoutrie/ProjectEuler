@@ -1,12 +1,15 @@
-# Generate Fibonacci sequence
-output <- 1:2
-final.term <- tail(output,1)
 
-while(final.term <= 4*10^6) {
-  next.index <- length(output)
-  output[next.index+1] <- sum(output[next.index-1],output[next.index])
-  final.term <- tail(output,1)
+#' Euler 2
+#'
+#' Finds the sum of all evevn fibbonaci numbers below a certain value
+#'
+#' @param len Maximum value
+#'
+#' @return Integer
+#' @export
+euler2 <- function(len = 4*10^6) {
+	sequence <- fibb(len)
+
+	# Take the sum for all even numbers
+	sum(sequence[sequence%%2==0])
 }
-
-# Take the sum for all even numbers
-sum(output[output%%2==0])

@@ -1,3 +1,10 @@
+#' Euler 49
+#'
+#' Finds the sequences which are 4 digits long, share the same digits, are prime and are
+#' an arithmetic sequence.
+#'
+#' @return
+#' @export
 euler49 <- function() {
 
 	# Get possible digits accounting for the possiblility of repeated digits
@@ -20,6 +27,7 @@ euler49 <- function() {
 	primes <- primes[sapply(primes, length) > 0]
 
 	# Find the arithmetic sequences and return them
+	primes <- primes[sapply(primes, length) > 2]
 	differences <- lapply(primes,findArithmeticSeq, seq.length = 3)
 	differences[!sapply(differences, is.null)]
 

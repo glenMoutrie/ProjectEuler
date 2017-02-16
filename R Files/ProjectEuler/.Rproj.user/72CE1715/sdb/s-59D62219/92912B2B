@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "# Euler 24\npossible.digits <- 0:9\npermutation <- 0\niteration <- 0\nnext.permutation <- 0\ndigit <- 0\nnumber <- c()\n\nwhile(length(number)<10){\n  each.digit.permutation <- next.permutation <- factorial(9-length(number))\n  digit <- length(number) + 1\n  \n  for(iteration in possible.digits) {\n    number[digit] <- iteration\n    permutation <- permutation + each.digit.permutation\n    print(paste0(\"Number: \",paste0(number,collapse = \"\"),\", Permutation: \", permutation))\n    if(permutation >= 10^6) {\n      possible.digits <- possible.digits[-which(possible.digits%in%iteration)]\n      permutation <- permutation - each.digit.permutation\n      break\n    }\n  }\n  \n}\n\nmessage(number)",
+    "created" : 1487256725604.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2672949718",
+    "id" : "92912B2B",
+    "lastKnownWriteTime" : 1447843846,
+    "last_content_update" : 1447843846,
+    "path" : "~/Documents/ProjectEuler/R Files/ProjectEuler/R/Euler24.R",
+    "project_path" : "R/Euler24.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

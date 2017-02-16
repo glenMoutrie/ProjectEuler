@@ -336,3 +336,42 @@ sumOfDivisors <- function(x) {
 	}
 	sum
 }
+
+#' Find factors of a number
+#'
+#' This function returns the factors of an integer
+#'
+#' @param number Integer
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' factorFinder(10^3)
+factorFinder <- function(number) {
+
+	# Create a bunch of meta shit
+	end.point <- sqrt(number)
+	divisor <- c()
+	other.divisor <- c()
+	is.proper <- F
+	result <- c()
+
+	# Finally get your arse around to doing something with them
+	for(i in 1:end.point){
+		divisor <- number%%i
+		if(divisor == 0) {
+			result[length(result) + 1] <- i
+
+			# Make an efficiency saving by considering only  up to square points
+			other.divisor <- number/i
+			if(other.divisor!=i){
+				result[length(result) + 1] <- other.divisor
+			}
+
+		}
+	}
+
+	# Return your shit.
+	result
+}

@@ -36,3 +36,28 @@ getPentagonal <- function(n) {
 getHexagonal <- function(n) {
 	n*(2*n-1)
 }
+
+#' Fibbonaci Sequence
+#'
+#' Generates fibbonci numbers up to a certain given value
+#'
+#' @param highest.val Highest value
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' fibb(13)
+fibb <- function(highest.val) {
+	output <- 1:2
+	final.term <- tail(output,1)
+
+	while(final.term < highest.val) {
+		next.index <- length(output)
+		output[next.index+1] <- sum(output[next.index-1],output[next.index])
+		final.term <- tail(output,1)
+	}
+
+	output
+
+}
