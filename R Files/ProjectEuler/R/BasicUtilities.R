@@ -375,3 +375,18 @@ factorFinder <- function(number) {
 	# Return your shit.
 	result
 }
+
+#' Get triangle perimeter given two sides
+#'
+#' As we know that b^2 = sqrt(a^2 + b^2) we know that
+#' p = a + b + c = a + c + sqrt(a^2 + c^2). The function below will
+#' generate all of the possible p values given a and c.
+#'
+#' @param a integer value
+#' @param c integer value
+#'
+#' @return Numeric value
+#' @export
+getTrianglePerimeter <- function(a, c) {
+	a + c + sqrt((a^2) + (c^2))
+}

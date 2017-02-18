@@ -1,33 +1,42 @@
-library(data.table)
-words <- as.vector(t(read.csv("Downloads/p042_words.csv",header = F)))
+#' Euler 42
+#'
+#' Given a series of words, a numeric value for each will be assinged and each
+#' triangular value will be added together
+#'
+#' @param src CSV file containing the words
+#'
+#' @return Integer value
+#' @export
+euler42 <- function(src = "~/Downloads/p042_words.csv") {
 
-letterValue <- function(letter) {
-	output <- which(LETTERS == letter)
-	if (length(output) == 0) {
-		output <- which(letters == letter)
+	# Import the words
+	words <- as.vector(t(suppressWarnings(read.csv(src,header = F))))
+
+	# Funtion which assigns the value for the letter
+	letterValue <- function(letter) {
+		output <- which(LETTERS == letter)
+		if (length(output) == 0) {
+			output <- which(letters == letter)
+		}
+		output
 	}
-	output
-}
 
-splitWord <- function(word) {
-	unlist(strsplit(word, ""))
-}
-
-wordValue <- function(word) {
-	sum(sapply(splitWord(word), letterValue))
-}
-
-generateTriangularNumbers <- function (max) {
-	output <- 1
-	n <- 1
-	while (tail(output,1) < max) {
-		output <- append(output, (0.5*n*(n+1)))
-		n <- n + 1
+	# Splits the word into letters
+	splitWord <- function(word) {
+		unlist(strsplit(word, ""))
 	}
-	output
+
+	# Calculates the word value
+	wordValue <- function(word) {
+		sum(sapply(splitWord(word), letterValue))
+	}
+
+	# Find the word numbers
+	test <- sapply(words, wordValue)
+
+	# Generate viable traingular numbers
+	triangular <- generateTriangularNumbers(max(test))
+
+	# Find the number of words which are triangular
+	sum(test %in% triangular)
 }
-
-test <- sapply(words, wordValue)
-
-triangular <- generateTriangularNumbers(max(test))
-sum(test %in% triangular)

@@ -1,4 +1,4 @@
-#' Euler 49
+#' Euler 41
 #'
 #' Finds the largest pandigital prime.
 #'

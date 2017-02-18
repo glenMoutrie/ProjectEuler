@@ -5,9 +5,6 @@
 #'
 #' @return Number which solves Euler 52
 #' @export
-#'
-#' @examples
-#' euler52()
 euler52 <- function() {
 	match <- F
 	number <- 0

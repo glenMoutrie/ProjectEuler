@@ -11,6 +11,27 @@ getTriangle <- function(n) {
 	n*(n + 1)/2
 }
 
+#' Generate series of triangular numbers
+#'
+#' Generates a series of triangular numbers all of which are below a given value
+#'
+#' @param max Maximum value in the series
+#'
+#' @return Numeric vector
+#' @export
+#'
+#' @examples
+#' generateTriangularNumbers(10)
+generateTriangularNumbers <- function (max) {
+	output <- 1
+	n <- 1
+	while (tail(output,1) < max) {
+		output <- append(output, getTriangle(n))
+		n <- n + 1
+	}
+	output
+}
+
 #' Estimate a pentagonal number
 #'
 #' @param n Which pentagonal number
