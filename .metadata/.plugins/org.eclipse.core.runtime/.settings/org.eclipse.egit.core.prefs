@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=/Users/glenmoutrie/Documents/ProjectEuler/.git\:
-GitRepositoriesView.GitDirectories.relative=.git\:
+GitRepositoriesView.GitDirectories=/Users/glenmoutrie/Documents/ProjectEuler/.git\:/Users/glenmoutrie/.git\:
+GitRepositoriesView.GitDirectories.relative=.git\:/Users/glenmoutrie/.git\:
 RepositorySearchDialogSearchPath=/Users/glenmoutrie/Documents/ProjectEuler
 eclipse.preferences.version=1
