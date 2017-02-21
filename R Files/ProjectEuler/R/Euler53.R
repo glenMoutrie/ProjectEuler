@@ -4,7 +4,7 @@
 #'
 #' @return
 #' @export
-euler53() <- function() {
+euler53 <- function() {
 	all.values <- matrix(NA, nrow = 100, ncol = 100)
 
 	for (n in 1:100){
