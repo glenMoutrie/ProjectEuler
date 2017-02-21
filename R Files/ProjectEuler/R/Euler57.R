@@ -43,22 +43,9 @@ numeratorSequence <- function(n) {
 
 }
 
-nDigits <- function(x) {
-
-	if (is.infinite(x)) return(x)
-
-	modulo <- x%/%10
-	n <- 1
-	while (modulo != 0) {
-		modulo <- modulo%/%10
-		n <- n + 1
-	}
-
-	n
-}
 
 n <- 10^3
 d <- denominatorSequence(n)
 n <- numeratorSequence(n)
 
-sum(sapply(d,nDigits) < sapply(n,nDigits))
+sum(sapply(d,digits) < sapply(n,digits))

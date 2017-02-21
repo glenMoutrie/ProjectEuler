@@ -139,13 +139,16 @@ findArithmeticSeq <- function(x, seq.length = 3) {
 #' @examples
 #' digits(123)
 digits <- function(x) {
-	rem <- x
-	total <- 0
-	while(rem >= 1) {
-		rem <- rem/10
-		total <- total + 1
+	if (is.infinite(x)) return(x)
+
+	modulo <- x%/%10
+	n <- 1
+	while (modulo != 0) {
+		modulo <- modulo%/%10
+		n <- n + 1
 	}
-	total
+
+	n
 }
 
 #' Get the digits of a number
